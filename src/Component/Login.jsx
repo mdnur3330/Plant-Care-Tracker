@@ -23,15 +23,15 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         console.log(result);
-        if(result.user.emailVerified !== true){
-          return (
-            Swal.fire({
-          icon: "error",
-          title: "Oops...",
-         text: "Your Email Is Not Verifide"
-        })
-          )
-        }
+        // if(result.user.emailVerified !== true){
+        //   return (
+        //     Swal.fire({
+        //   icon: "error",
+        //   title: "Oops...",
+        //  text: "Your Email Is Not Verifide"
+        // })
+        //   )
+        // }
         Swal.fire({
           title: "Welcome back!",
           text: "You’re now logged in.",
@@ -73,8 +73,8 @@ const Login = () => {
   const handelResetPassword =()=>{
     console.log(emailRef);
     const email = emailRef.current.value;
-    resetPassword(email).then((result)=>{
-      console.log(result);
+    resetPassword(email).then(()=>{
+      // console.log(result);
        
       Swal.fire({
                 title: "Check your email!",
@@ -97,13 +97,13 @@ const Login = () => {
     setHideShow(!hideShow)
   }
   return (
-    <div className="hero bg-base-200 min-h-screen ">
+    <div className="hero min-h-screen ">
       <Helmet>
     <title>LogIn</title>
 </Helmet>
       <div className="hero-content flex-col">
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="text-2xl text-center p-4 text-gray-700 font-bold">
+        <div className="card w-full max-w-sm shrink-0 shadow-2xl">
+          <h1 className="text-2xl text-center p-4 font-bold">
             Login and explore what’s waiting for you!
           </h1>
 
@@ -176,7 +176,7 @@ const Login = () => {
                 </svg>
                 SignUp with Google
               </button>
-               <p className="p-5 text-gray-700">New here? please <Link className="underline text-indigo-800 font-medium" to='/sing-up'>Sign Up</Link></p>
+               <p className="p-5">New here? please <Link className="underline text-indigo-800 font-medium" to='/sing-up'>Sign Up</Link></p>
         </div>
       </div>
     </div>
@@ -184,3 +184,19 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+// https://ibb.co/Fqf5btNj
+// https://ibb.co/rKchcHBh
+// https://ibb.co/wZ5pq7dJ
+// https://ibb.co/MDD1z65y
+// https://ibb.co/FbmpHtgj
+// https://ibb.co/m5Mn9RyG
+// https://ibb.co/6cNWN1Wf
+// https://ibb.co/ZRBVCykR
+// https://ibb.co/27w0Pd87
+// https://ibb.co/VWZXHtwT
+// https://ibb.co/PvBGhYMv
+// https://ibb.co/1fwgBm87
+// https://ibb.co/390mSfMs

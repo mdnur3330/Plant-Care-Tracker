@@ -12,9 +12,9 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <div>
-      <div className="md:flex justify-center  text-white pl-9  border-b border-dashed border-gray-300 pb-10 space-y-6">
+      <div className="md:flex justify-evenly pl-9  border-b border-dashed border-gray-300 pb-10 space-y-6">
         <div className="flex-1">
-          <h2 className="text-4xl my-4 font-bold text-orange-500">Stacked </h2>
+          <h2 className="text-4xl my-4 font-bold">Stacked </h2>
           <p>
             Stacked — Your Ultimate Subscription Hub Discover, compare, and
             manage your favorite subscription services all in one place. From
@@ -71,7 +71,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="text-center text-white pt-4 mt-5">
+      <p className="text-center pt-4 mt-5">
         © 2025 Stacked. All rights reserved.
       </p>
     </div>

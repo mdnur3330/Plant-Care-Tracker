@@ -1,9 +1,17 @@
 import React, { use } from "react";
 import { AuthContext } from "../Component/AuthProvider";
+import { useLoaderData } from 'react-router';
+import Swal from "sweetalert2";
 
-const AddPlant = () => {
+
+
+const Update = () => {
+      const plant = useLoaderData()
+    console.log(plant);
   const {user} = use(AuthContext)
-  const handelAddPlant = (e)=>{
+
+
+  const handeUpdatePlant = (e)=>{
     e.preventDefault()
     const form = e.target;
     const formData = new FormData(form);
@@ -11,20 +19,26 @@ const AddPlant = () => {
     console.log(newPlant);
 
 
-    fetch("http://localhost:5400/plant",{
-      method: "POST",
+    fetch(`http://localhost:5400/plant/${plant._id}`,{
+      method: "PUT",
       headers:{
         'content-type': "application/json"
       },
       body: JSON.stringify(newPlant)
     }).then(res => res.json()).then(data =>{
-      console.log("after adding data ",data);
+        if(data.modifiedCount){
+             Swal.fire({
+                      title: "Updated!",
+                      icon: "success",
+                    });
+        }
+      console.log("after putting data ",data);
     })
   }
   return (
-    <div className="card w-full  shrink-0 shadow-2xl my-10">
-      <h3 className="text-center text-4xl">AddPlant</h3>
-      <form onSubmit={handelAddPlant}>
+    <div className="card bg-base-100 w-full  shrink-0 shadow-2xl my-10">
+      <h3 className="text-center text-4xl">Update Plant</h3>
+      <form onSubmit={handeUpdatePlant}>
         <div className="card-body grid md:grid-cols-2 w-9/12 mx-auto">
        
           <fieldset className="fieldset">
@@ -33,7 +47,7 @@ const AddPlant = () => {
               type="text"
               className="input"
               name="userName"
-              value={user?.displayName}
+              value={user.displayName}
               placeholder="Name"
             />
           </fieldset>
@@ -43,7 +57,7 @@ const AddPlant = () => {
               type="email"
               className="input"
               name="email"
-              value={user?.email}
+              value={user.email}
               placeholder="Email"
             />
           </fieldset>
@@ -53,6 +67,7 @@ const AddPlant = () => {
               type="text"
               className="input"
               name="photo"
+              defaultValue={plant.photo}
               placeholder="Photo Url"
             />
           </fieldset>
@@ -62,6 +77,7 @@ const AddPlant = () => {
               type="text"
               className="input"
               name="plantName"
+              defaultValue={plant.plantName}
               placeholder="Plant Name"
             />
           </fieldset>
@@ -71,6 +87,7 @@ const AddPlant = () => {
               type="date"
               className="input"
               name="lastWateredDate"
+              defaultValue={plant.lastWateredDate}
               placeholder="Last Watered Date"
             />
           </fieldset>
@@ -80,6 +97,7 @@ const AddPlant = () => {
               type="date"
               className="input"
               name="nextWateringDate"
+              defaultValue={plant.nextWateringDate}
               placeholder="Next Watering Date"
             />
           </fieldset>
@@ -89,6 +107,7 @@ const AddPlant = () => {
               type="text"
               className="input"
               name="wateringFrequency"
+              defaultValue={plant.wateringFrequency}
               placeholder="Watering Frequency"
             />
           </fieldset>
@@ -98,6 +117,7 @@ const AddPlant = () => {
               type="text"
               className="input"
               name="healthStatus"
+              defaultValue={plant.healthStatus}
               placeholder="Health Status"
             />
           </fieldset>
@@ -105,8 +125,8 @@ const AddPlant = () => {
          <div className="flex gap-3">
             <fieldset>
             <label>Plant Category:</label> <br />
-            <select name="plantCategory" className="border px-5 py-2 my-2">
-              <option  selected>select</option>
+            <select defaultValue={plant.plantCategory} name="plantCategory" className="border px-5 py-2 my-2">
+              <option value=''>select</option>
               <option value={"Succulent"}>Succulent</option>
               <option value={"Shrub"}>Shrub</option>
               <option value={"Herb"}>Herb</option>
@@ -123,7 +143,7 @@ const AddPlant = () => {
           </fieldset>
           <fieldset>
             <label>Plant Care Level:</label> <br />
-            <select name="plantCareLevel" className="border px-5 py-2 my-2">
+            <select defaultValue={plant.plantCareLevel} name="plantCareLevel" className="border px-5 py-2 my-2">
               
               <option value="">select</option>
               <option value="easy">easy</option>
@@ -134,11 +154,11 @@ const AddPlant = () => {
         </div>
          <fieldset>
               <label htmlFor="">Description</label><br />
-              <textarea name="description" id="" className="border border-gray-500 pt-2 rounded-sm mt-2" cols="45" rows="4" placeholder="Description heare..."></textarea>
+              <textarea defaultValue={plant.description} name="description" id="" className="border border-gray-500 pt-2 rounded-sm mt-2" cols="45" rows="4" placeholder="Description heare..."></textarea>
             </fieldset>
         <div className="col-span-1 md:col-span-2">
           
-         <input type="submit" value='Add Plant' className="btn w-full" />
+         <input type="submit" value='Update' className="btn w-full" />
         </div>
         </div>
        
@@ -147,6 +167,4 @@ const AddPlant = () => {
   );
 };
 
-export default AddPlant;
-
-
+export default Update;

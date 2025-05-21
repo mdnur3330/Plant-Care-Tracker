@@ -1,0 +1,95 @@
+import React, { useState } from "react";
+import { Link, useLoaderData } from "react-router";
+import Swal from "sweetalert2";
+
+const MyPlants = () => {
+    const initialPlnats = useLoaderData()
+    console.log(initialPlnats);
+    const [plants, setPlants] = useState(initialPlnats)
+
+
+    const handelDelete = (id)=>{
+
+
+
+      Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+
+  fetch(`http://localhost:5400/plant/${id}`,{
+        method:"DELETE"
+      }).then(res => res.json()).then(data =>{
+        if(data.deletedCount){
+          const newPlants = plants.filter(plant => plant._id !== id)
+          setPlants(newPlants)
+        }
+        console.log("after deleteing", data);
+         Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+      })
+
+   
+  }
+});
+
+
+
+    
+    }
+  return (
+    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+       {plants.map(plant => <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm border border-gray-300">
+          <div>
+            <img
+            src={plant.photo}
+            className="object-cover w-full h-64 border-b border-gray-300"
+            alt=""
+          />
+          </div>
+          <div className="p-5">
+            <div className="mb-3 text-xs font-semibold tracking-wide uppercase">
+              <p
+className="text-gray-600"
+              >
+                last-Watered-date
+              </p>
+              <span className="text-gray-600">— {plant.lastWateredDate}</span>
+            </div>
+            <p
+              className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 text-gray-900" 
+            >
+              {plant.plantName}
+            </p>
+            <p className="mb-2 text-gray-700 h-12 truncate">
+              {plant.description}
+            </p>
+            <div className="flex justify-between">
+                <Link to={`/update/${plant._id}`}
+            
+              className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 btn"
+            >
+             Update Plant
+            </Link>
+            <button className="btn" onClick={()=>handelDelete(plant._id)}>Remove</button>
+            </div>
+          </div>
+        </div>)}
+        
+      </div>
+    </div>
+  );
+};
+
+
+export default MyPlants;

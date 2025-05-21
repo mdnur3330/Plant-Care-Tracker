@@ -1,0 +1,31 @@
+/* Default styles */
+.app {
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+}
+
+/* Light Mode */
+.app.light {
+  background-color: #ffffff;
+   color: #000000 ;
+}
+
+
+/* Dark Mode */
+.app.dark {
+  background-color: rgb(42, 48, 60);
+  color: #ffffff ;
+}
+
+
+/* Optional button styling */
+button {
+  /* padding: 10px 20px; */
+  cursor: pointer;
+  /* border: none; */
+  /* background-color: #4a90e2; */
+  color: gray;
+  /* border-radius: 5px; */
+  /* margin-bottom: 20px; */
+}

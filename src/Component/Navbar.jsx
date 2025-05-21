@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "./AuthProvider";
+import { FaMoon } from "react-icons/fa";
+import { MdOutlineWbSunny } from "react-icons/md";
 
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { user, singOutUser } = useContext(AuthContext);
+  const { user, singOutUser, darkMode, toggleTheme  } = useContext(AuthContext);
 
   const handelSignOUt = () => {
     singOutUser()
@@ -19,10 +21,10 @@ const Navbar = () => {
 
   return (
     <>
-    <div className="navbar md:flex justify-between bg-base-100 shadow-sm px-20 hidden">
+    <div className="navbar md:flex justify-between shadow px-20 hidden">
       <div className=" flex gap-4 items-center">
-        <h3 className="text-2xl text-orange-500 font-bold">Stacked</h3>
-        <h2 className="break-all">{user?.email}</h2>
+        <h3 className="text-2xl font-bold">Stacked</h3>
+      <h2 className="break-all">{user?.email}</h2>
       </div>
       <div className="flex gap-5">
         <NavLink
@@ -35,12 +37,12 @@ const Navbar = () => {
         </NavLink>
 
         <NavLink
-          to="/Profile"
+          to="/all-plant"
           className={({ isActive }) =>
             `text-2xl ${isActive ? "underline pb-2" : ""}`
           }
         >
-          Profile
+          All Plant
         </NavLink>
         <NavLink
           to="/add-plant"
@@ -49,6 +51,14 @@ const Navbar = () => {
           }
         >
           Add Plant
+        </NavLink>
+        <NavLink
+          to={`/my-plant/${user?.email}`}
+          className={({ isActive }) =>
+            `text-2xl ${isActive ? "underline pb-2" : ""}`
+          }
+        >
+          My Plant
         </NavLink>
       </div>
       <div className=" flex gap-5">
@@ -70,24 +80,29 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handelSignOUt}
-            className="bg-orange-500 text-white font-medium rounded-lg px-4 py-2"
+            className="font-medium rounded-lg px-4 py-2"
           >
             SignOut
           </button>
         ) : (
           <Link
-            className="bg-orange-500 text-white rounded-lg font-medium px-4 py-2"
+            className="rounded-lg font-medium px-4 py-2"
             to="/login"
           >
             Login
           </Link>
         )}
+
+
+<button onClick={toggleTheme}>
+        {darkMode ?<FaMoon className="Switch to Dark Mode" size={30} color="white"/>:<MdOutlineWbSunny className="Switch to Light Mode" size={30} color="black"/>} </button>
+
       </div>
     </div>
 
     {/* mobail navbar */}
 
-    <div className="navbar bg-base-100 shadow-sm md:hidden">
+    <div className="navbar shadow-sm md:hidden">
     
     <div className="navbar-start">
       <div className="dropdown">
@@ -120,18 +135,23 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/Profile">Profile</Link>
+            <Link to="/all-plant">All Plant</Link>
           </li>
           <li>
-            <Link to='/blog'>Blog</Link>
+            <Link to="/add-plant">Add Plant</Link>
+          </li>
+          <li>
+            <Link to={`/my-plant/${user?.email}`}>My Plant</Link>
           </li>
         </ul>
       </div>
+      <button onClick={toggleTheme}>
+        {darkMode ?<FaMoon className="Switch to Dark Mode" size={20} color="white"/>:<MdOutlineWbSunny className="Switch to Light Mode" size={20} color="black"/>} </button>
     </div>
  
     <div>
     
-      <h3 className="text-xl text-left text-orange-500 font-medium">Stacked</h3>
+      <h3 className="text-xl text-left font-medium">Stacked</h3>
     </div>
     <div className="navbar-end">
       <div className=" flex gap-5">
@@ -150,16 +170,16 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handelSignOUt}
-            className="bg-orange-500 text-white font-medium rounded-lg px-2 py-1"
+            className=" font-medium rounded-lg px-2 py-1"
           >
             SignOut
           </button>
         ) : (
           <Link
-            className="bg-orange-500 text-white rounded-lg font-medium px-2 py-1"
+            className="rounded-lg font-medium px-2 py-1"
             to="/login"
           >
-            Login
+            <h2>Login</h2>
           </Link>
         )}
       </div>

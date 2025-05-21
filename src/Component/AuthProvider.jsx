@@ -1,79 +1,98 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
-import React, { createContext, useEffect, useState } from 'react';
-import { auth } from './firebase';
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import React, { createContext, useEffect, useState } from "react";
+import { auth } from "./firebase";
+import '../App.css'
 
+export const AuthContext = createContext();
 
+const AuthProvider = ({ children }) => {
+  const authProvider = new GoogleAuthProvider();
+  const [darkMode, setDarkMode] = useState(false);
+  const [user, setUser] = useState();
+  const [loding, setLoding] = useState(true);
 
-export const AuthContext = createContext()
+  const signUp = (email, password) => {
+    setLoding(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-const AuthProvider = ({children}) => {
-    const authProvider = new GoogleAuthProvider()
-    const [user, setUser] = useState()
-    const [loding, setLoding] = useState(true)
-  
+  const loginWithGoogle = () => {
+    setLoding(true);
+    return signInWithPopup(auth, authProvider);
+  };
 
-    const signUp = (email, password)=>{
-        setLoding(true)
-        return createUserWithEmailAndPassword(auth, email, password)
-    }
+  const login = (email, password) => {
+    setLoding(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
-    const loginWithGoogle = ()=>{
-        setLoding(true)
-        return signInWithPopup(auth, authProvider)
-    }
+  const singOutUser = () => {
+    setLoding(true);
+    return signOut(auth);
+  };
 
-    const login = (email, password)=>{
-        setLoding(true)
-        return signInWithEmailAndPassword(auth, email, password)
-    }
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
 
-    const singOutUser = ()=>{
-        setLoding(true)
-        return signOut(auth)
-    }
+  const userUpdateProfile = (updateData) => {
+    setLoding(true);
+    return updateProfile(auth.currentUser, updateData)
+      .then(() => {
+        setUser({ ...auth.currentUser });
+      })
+      .finally(() => {
+        setLoding(false);
+      });
+  };
 
-    const resetPassword = (email)=>{
-        return sendPasswordResetEmail(auth, email)
-    }
+  const emailVerification = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
 
-    const userUpdateProfile = (updateData)=>{
-        setLoding(true)
-        return updateProfile(auth.currentUser, updateData).then(()=>{setUser({...auth.currentUser})}).finally(() => {
-            setLoding(false);
-        });
-    }
+  const toggleTheme = () => {
+    setDarkMode((prev) => !prev);
+  };
 
-    const emailVerification  = ()=>{
-        return sendEmailVerification(auth.currentUser)
-    }
+  useEffect(() => {
+    const getCurrentUser = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoding(false);
+    });
+    return () => {
+      getCurrentUser();
+    };
+  }, []);
 
-    useEffect(()=>{
-        const getCurrentUser = onAuthStateChanged(auth, (currentUser)=>{
-            setUser(currentUser)
-            setLoding(false)
-        })
-        return ()=>{
-            getCurrentUser()
-        }
-    },[])
+  const authData = {
+    signUp,
+    loginWithGoogle,
+    login,
+    singOutUser,
+    userUpdateProfile,
+    resetPassword,
+    emailVerification,
+    user,
+    loding,
+    darkMode,
+    toggleTheme,
+  };
 
-    const authData = {
-        signUp,
-        loginWithGoogle,
-        login,
-        singOutUser,
-        userUpdateProfile,
-        resetPassword,
-        emailVerification,
-        user,
-        loding,
-        
-       
-    }
-
-    return <AuthContext value={authData}>
-        {children}
+  return (
+    <AuthContext value={authData}>
+      <div className={darkMode ? "app dark" : "app light"}>{children}</div>
     </AuthContext>
+  );
 };
 
 export default AuthProvider;

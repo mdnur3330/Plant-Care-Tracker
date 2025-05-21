@@ -8,7 +8,7 @@ import { AuthContext } from "./AuthProvider";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { signUp, loginWithGoogle, userUpdateProfile, emailVerification } =
+  const { signUp, loginWithGoogle, userUpdateProfile} =
     useContext(AuthContext);
 
   const [hideShow, setHideShow] = useState(false);
@@ -21,7 +21,7 @@ const SignUp = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirm = e.target.confirm.value;
-    console.log(password, email, confirm);
+    // console.log(password, email, confirm);
 
     if (name.length < 7) {
       return Swal.fire({
@@ -78,20 +78,28 @@ const SignUp = () => {
 
     signUp(email, password)
       .then((user) => {
-        emailVerification().then(() => {});
         userUpdateProfile(userData)
-          .then(() => {
-            console.log("update profile");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        // emailVerification().then(() => {});
+        
+        //   .then(() => {
+        //     console.log("update profile");
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   });
 
-        alert(
-          "Your account created successfullu  Verifify your Email to Login!"
-        );
-        window.location.href = "https://mail.google.com/";
-        console.log(user);
+        // alert(
+        //   "Your account created successfullu  Verifify your Email to Login!"
+        // );
+        // window.location.href = "https://mail.google.com/";
+
+        Swal.fire({
+          title: "Congratulations!",
+          text: "Your account created successfullu!",
+          icon: "success",
+        });
+         navigate("/");
+        // console.log(user);
       })
       .catch((error) => {
         console.log(error);
