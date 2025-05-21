@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Hero from './Hero';
 import { useLoaderData } from 'react-router';
+import HomeSection from './HomeSection';
+import TopRatingBestSelling from './TopRatingBestSelling';
 
 const Home = () => {
     const allPlant = useLoaderData()
@@ -12,9 +14,12 @@ const Home = () => {
     return (
         <div>    
             <Hero></Hero>
+            <HomeSection></HomeSection>
             <div>
                 <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                  <h1 className='text-4xl my-5 font-bold'>New Plants section</h1>
                       <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+                        
                        {plants.map(plant => <div className="overflow-hidden transition-shadow duration-300  rounded shadow-sm border border-gray-300" key={plant._id}>
                           <div>
                             <img
@@ -28,7 +33,7 @@ const Home = () => {
                               <p>
                                 last-Watered-date
                               </p>
-                              <span>— {plant.nextWateringDate}</span>
+                              <span>— {plant.lastWateredDate}</span>
                             </div>
                             <p
                               className="inline-block mb-3 text-2xl font-bold "
@@ -44,6 +49,7 @@ const Home = () => {
                       </div>
                     </div>
             </div>
+            <TopRatingBestSelling></TopRatingBestSelling>
         </div>
     );
 };
