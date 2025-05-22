@@ -7,7 +7,7 @@ const TopRatingBestSelling = () => {
 
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
-        <h2 className="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none md:mb-6 group">
+        <h2 className="max-w-lg mb-5 font-sans text-3xl font-medium tracking-tight sm:text-4xl sm:leading-none md:mb-6 group">
           <span className="inline-block mb-1 sm:mb-4">
             Top Rating
             <br className="hidden md:block" />
@@ -70,7 +70,7 @@ const TopRatingBestSelling = () => {
             </svg>
           </div>
           <div className="max-w-xl mb-6">
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight 
+            <h2 className="max-w-lg mb-6 font-sans text-3xl font-medium tracking-tight 
             sm:text-4xl sm:leading-none">
              Beautiful plant
 

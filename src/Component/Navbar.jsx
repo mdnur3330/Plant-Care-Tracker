@@ -23,7 +23,7 @@ const Navbar = () => {
     <>
     <div className="navbar md:flex justify-between shadow px-20 hidden">
       <div className=" flex gap-4 items-center">
-        <h3 className="text-2xl font-bold">Stacked</h3>
+        <h3 className="text-2xl font-bold">HariCare</h3>
       <h2 className="break-all">{user?.email}</h2>
       </div>
       <div className="flex gap-5">

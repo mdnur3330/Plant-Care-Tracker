@@ -31,7 +31,7 @@ const HomeSection = () => {
               </svg>
             </div>
           </a>
-          <h5 className="mb-4 text-4xl font-extrabold leading-none">
+          <h5 className="mb-4 text-4xl font-medium leading-none">
             Decorate your
  
             <br className="hidden md:block" />

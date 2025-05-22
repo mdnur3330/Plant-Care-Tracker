@@ -138,84 +138,84 @@ const SignUp = () => {
     setHideShowConfirm(!hideShowConfirm);
   };
   return (
-    <div className="bg-white my-20 py-20">
+    <div className="my-10">
       <Helmet>
         <title>SignUp</title>
       </Helmet>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div className="card  w-full max-w-sm shrink-0 shadow-2xl">
             <div className="card-body p-8 border border-gray-300">
               <h1 className="text-5xl font-medium">SignUp now!</h1>
               <form onSubmit={handelSignUp}>
-                <label className="label">Name</label>
+                <label className="label text-xl">Name</label>
                 <input
                   type="text"
-                  className="input"
+                  className="input text-xl bg-gray-400"
                   placeholder="Name"
                   name="name"
                   required
                 />
-                <label className="label">Photo</label>
+                <label className="label text-xl">Photo</label>
                 <input
                   type="text"
-                  className="input"
+                  className="input text-xl bg-gray-400"
                   placeholder="Photo"
                   name="photo"
                   required
                 />
-                <label className="label">Email</label>
+                <label className="label text-xl">Email</label>
                 <input
                   type="email"
-                  className="input"
+                  className="input text-xl bg-gray-400"
                   placeholder="Email"
                   name="email"
                   required
                 />
                 <div className="relative">
-                  <label className="label">Password</label>
+                  <label className="label text-xl">Password</label>
                   <input
                     type={hideShow ? "text" : "password"}
                     name="password"
-                    className="input relative"
+                    className="input relative text-xl bg-gray-400"
                     placeholder="*******"
                     required
                   />
                   <div
                     onClick={handelPasswordHideShow}
-                    className="top-8 right-7 z-2 absolute cursor-pointer"
+                    className="top-9 right-7 z-2 absolute cursor-pointer"
                   >
                     {hideShow ? (
-                      <FaEyeSlash size={20} color="gray" />
+                      <FaEyeSlash size={20} />
                     ) : (
-                      <IoMdEye size={20} color="gray" />
+                      <IoMdEye size={20}/>
                     )}
                   </div>
                 </div>
                 <div className="relative">
-                  <label className="label">Confirm Password</label>
+                  <label className="label text-xl">Confirm Password</label>
                   <input
                     type={hideShowConfirm ? "text" : "password"}
                     name="confirm"
-                    className="input relative"
+                    className="input relative text-xl bg-gray-400"
                     placeholder="*******"
                     required
                   />
                   <div
                     onClick={handelConfirmPasswordHideShow}
-                    className="top-8 right-7 z-2 absolute cursor-pointer"
+                    className="top-9 right-7 z-2 absolute cursor-pointer"
                   >
                     {hideShowConfirm ? (
-                      <FaEyeSlash size={20} color="gray" />
+                      <FaEyeSlash size={20}/>
                     ) : (
-                      <IoMdEye size={20} color="gray" />
+                      <IoMdEye size={20} />
                     )}
                   </div>
                 </div>
 
                 <input
                   type="submit"
-                  className="btn btn-neutral mt-3 w-full"
+                  className="btn btn-neutral mt-3 w-full bg-gray-800"
                   value="SignUp"
                 />
               </form>
@@ -227,7 +227,7 @@ const SignUp = () => {
               </span>
               <button
                 onClick={handelGoogleSignUp}
-                className="btn bg-white text-black border-[#e5e5e5]"
+                className="btn border-[#e5e5e5]"
               >
                 <svg
                   aria-label="Google logo"

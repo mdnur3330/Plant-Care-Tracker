@@ -14,7 +14,7 @@ const Footer = () => {
     <div>
       <div className="w-9/12 mx-auto md:flex justify-evenly md:pl-9  border-b border-dashed border-gray-300 pb-10 space-y-6">
         <div className="flex-1">
-          <h2 className="text-4xl my-4 font-bold">Stacked </h2>
+          <h2 className="text-4xl my-4 font-bold">HariCare </h2>
           <p>
             Stacked — Your Ultimate Subscription Hub Discover, compare, and
             manage your favorite subscription services all in one place. From

@@ -1,6 +1,6 @@
 import React, { use, useRef, useState } from "react";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoMdEye } from "react-icons/io";
 import { Helmet } from "react-helmet";
@@ -10,10 +10,15 @@ const Login = () => {
   <Helmet>
     <title>Profile</title>
 </Helmet>
-  const navigate = useNavigate();
+  
   const { login, loginWithGoogle, resetPassword } = use(AuthContext);
   const emailRef = useRef()
   const [hideShow, setHideShow] = useState(false)
+  const location  = useLocation()
+  const navigate = useNavigate();
+
+  location.state?.pathname || '/';
+  console.log(location);
 
   const handelLogin = (e) => {
     e.preventDefault();
@@ -109,21 +114,21 @@ const Login = () => {
 
           <div className="card-body border-t border-dashed border-gray-400">
             <form onSubmit={handelLogin}>
-              <label className="label">Email</label>
+              <label className="label  text-xl">Email</label>
               <input
                 type="email"
                 name="email"
                 ref={emailRef}
-                className="input"
+                className="input bg-gray-400 text-xl"
                 placeholder="Email"
                 required
               />
               <div  className="relative">
-              <label className="label">Password</label>
+              <label className="label  text-xl">Password</label>
               <input
                 type={hideShow ? 'text' : 'password'}
                 name="password"
-                className="input relative"
+                className="input relative bg-gray-400 text-xl"
                 placeholder="*******"
                 required
               />
@@ -134,7 +139,7 @@ const Login = () => {
               <div onClick={handelResetPassword}>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button className="btn btn-neutral w-full mt-3">Login</button>
+              <button className="btn btn-neutral w-full mt-3  bg-gray-800 text-2xl ">Login</button>
             </form>
           </div>
           <span

@@ -39,7 +39,7 @@ export const route = createBrowserRouter([
       },
       {
         path: "my-plant/:email",
-        element:<MyPlants></MyPlants>,
+        element: <PrivateRoute><MyPlants></MyPlants></PrivateRoute>,
         loader: ({params})=>fetch(`http://localhost:5400/plant-by-email?email=${params.email}`),
           method: 'GET'
          },

@@ -5,38 +5,36 @@ const AllPlants = () => {
   const data = useLoaderData();
   console.log(data);
   return (
-    <div className="px-4 md:w-9/12 mx-auto">
-      <table className="table mx-auto ">
-        <thead>
-          <tr>
-            <th>photo</th>
-            <th>Name</th>
-            <th>category</th>
-            <th className="break-all">watering frequencyr</th>
-            <th></th>
-          </tr>
-        </thead>
+    <div className="px-4 md:w-9/12 mx-auto border border-gray-400 md:p-10 my-20">
+      <table className="table mx-auto">
+        <tr>
+          <th>No</th>
+          <th>photo</th>
+          <th>Name</th>
+          <th>category</th>
+          <th className="break-all">watering frequencyr</th>
+          <th>Show Details</th>
+        </tr>
+
         <tbody>
-          {data.map((plant) => (
+          {data.map((plant, i) => (
             <tr>
+              <td>{i + 1}</td>
               <td>
                 <div className="flex items-center gap-3">
                   <div className="avatar">
                     <div className="mask mask-squircle h-7 w-7 md:h-12 md:w-12">
-                      <img
-                        src={plant.photo}
-                        alt="photo"
-                      />
+                      <img src={plant.photo} alt="photo" />
                     </div>
                   </div>
                 </div>
               </td>
               <td>{plant.userName}</td>
               <td>{plant.plantCategory}</td>
+              <th>{plant.wateringFrequency}</th>
               <th>
-                {plant.wateringFrequency}
+                <Link to={`/details/${plant._id}`} className="border border-gray-500  px-5 py-2 rounded-md">Details</Link>
               </th>
-              <th><Link to={`/details/${plant._id}`}>Details</Link></th>
             </tr>
           ))}
         </tbody>
