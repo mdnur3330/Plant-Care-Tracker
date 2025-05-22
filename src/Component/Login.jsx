@@ -17,7 +17,7 @@ const Login = () => {
   const location  = useLocation()
   const navigate = useNavigate();
 
-  location.state?.pathname || '/';
+  
   console.log(location);
 
   const handelLogin = (e) => {
@@ -42,7 +42,7 @@ const Login = () => {
           text: "You’re now logged in.",
           icon: "success",
         });
-        navigate("/");
+       navigate(location.state?.pathname || '/')
       })
       .catch((error) => {
       
@@ -64,7 +64,7 @@ const Login = () => {
           icon: "success",
         });
     
-        navigate('/')
+        navigate(location.state?.pathname || '/')
       })
       .catch((error) => {
         Swal.fire({
@@ -86,9 +86,7 @@ const Login = () => {
                 text: "We've emailed you a link to reset your password",
                 icon: "success",
               });
-              setTimeout(()=>{
-                window.location.href = 'https://mail.google.com/'
-              },1000)
+             
     }).catch((error) => {
         console.log(error);
         Swal.fire({
@@ -132,7 +130,7 @@ const Login = () => {
                 placeholder="*******"
                 required
               />
-              <div onClick={handelPasswordHideShow} className="top-8 right-7 z-2 absolute cursor-pointer">
+              <div onClick={handelPasswordHideShow} className="top-9 right-7 z-2 absolute cursor-pointer">
                   {hideShow ? <FaEyeSlash size={20} color="gray" /> : <IoMdEye size={20} color="gray" />}
               </div>
               </div>

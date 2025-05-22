@@ -3,6 +3,8 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "./AuthProvider";
 import { FaMoon } from "react-icons/fa";
 import { MdOutlineWbSunny } from "react-icons/md";
+import { Tooltip } from 'react-tooltip';
+
 
 
 const Navbar = () => {
@@ -71,11 +73,21 @@ const Navbar = () => {
   <img
     className="w-10 h-10 rounded-full"
     src={user.photoURL}
+     data-tooltip-id="user-tooltip"
+    data-tooltip-content={user?.displayName}
     alt="User Profile"
-    title={user?.displayName}
+    // title={user?.displayName}
+    style={{
+        cursor: 'pointer',
+        borderRadius: '50%',
+        width: '40px',
+        height: '40px',
+      }}
+       
   />
+  
 )}
-
+ <Tooltip id="user-tooltip" /> 
         </div>
 
 
@@ -166,16 +178,25 @@ const Navbar = () => {
     <div className="navbar-end">
       <div className=" flex gap-5">
         <div className="flex gap-3 items-center">
-          <img
-            className="w-10 h-10 rounded-full"
-            alt="Tailwind CSS Navbar component"
-            src={`${
-              user
-                ? user.photoURL
-                : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            }`}
-            title={user?.displayName}
-          />
+         {user && (
+  <img
+    className="w-10 h-10 rounded-full"
+    src={user.photoURL}
+     data-tooltip-id="user-tooltip"
+    data-tooltip-content={user?.displayName}
+    alt="User Profile"
+    // title={user?.displayName}
+    // style={{
+    //     cursor: 'pointer',
+    //     borderRadius: '50%',
+    //     width: '40px',
+    //     height: '40px',
+    //   }}
+       
+  />
+
+)}
+ <Tooltip id="user-tooltip" /> 
         </div>
         {user ? (
           <button

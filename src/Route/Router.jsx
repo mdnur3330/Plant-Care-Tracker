@@ -13,6 +13,7 @@ import PrivateRoute from "../Component/PrivateRoute";
 import TermsAndConditions from "../Component/TermsAndConditions";
 import PrivacyPolucy from "../Component/PrivacyPolucy";
 import Test from "../Pages/Test";
+import ErrorPage from "../Component/ErrorPage";
 
 
 export const route = createBrowserRouter([
@@ -23,7 +24,8 @@ export const route = createBrowserRouter([
       {
         path: "",
         element: <Home></Home>,
-        loader: ()=>fetch("http://localhost:5400/plant")
+        loader: ()=>fetch("http://localhost:5400/plant"),
+        hydrateFallbackElement: <Looding></Looding>
       },
       {
         path: "all-plant",
@@ -71,10 +73,9 @@ export const route = createBrowserRouter([
   {
     path: '/test',
     element: <Test></Test>
-  }
-
-  //   {
-  //     path: "/*",
-  //     element: <Error></Error>,
-  //   },
+  },
+{
+      path: "/*",
+      element: <ErrorPage></ErrorPage>
+    },
 ]);

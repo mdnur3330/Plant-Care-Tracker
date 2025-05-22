@@ -71,14 +71,10 @@ const SignUp = () => {
       });
     }
 
-    const userData = {
-      displayName: name,
-      photoURL: photo,
-    };
 
     signUp(email, password)
       .then((user) => {
-        userUpdateProfile(userData)
+  
         // emailVerification().then(() => {});
         
         //   .then(() => {

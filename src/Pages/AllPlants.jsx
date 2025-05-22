@@ -34,7 +34,7 @@ const AllPlants = () => {
         </select>
       </div>
 
-      <table className="table mx-auto">
+      <table className="table mx-auto md:text-2xl">
         <thead>
           <tr>
             <th>No</th>
