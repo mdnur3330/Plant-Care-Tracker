@@ -64,33 +64,43 @@ const Navbar = () => {
       <div className=" flex gap-5">
         <div className="flex gap-3 items-center">
           <h3 className="text-2xl font-medium ">
-            {user ? user.displayName : "Unknown"}
+            {user ? user.displayName : ""}
           </h3>
-          <img
-            className="w-10 h-10 rounded-full"
-            alt="Tailwind CSS Navbar component"
-            src={`${
-              user
-                ? user.photoURL
-                : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            }`}
-            title={user?.displayName}
-          />
+        
+        {user && (
+  <img
+    className="w-10 h-10 rounded-full"
+    src={user.photoURL}
+    alt="User Profile"
+    title={user?.displayName}
+  />
+)}
+
         </div>
+
+
         {user ? (
           <button
             onClick={handelSignOUt}
-            className="font-medium rounded-lg px-4 py-2"
+            className="rounded-lg text-gray-600 font-bold px-4 text-2xl"
           >
             SignOut
           </button>
         ) : (
+          <>
           <Link
             className="rounded-lg font-medium px-4 py-2"
             to="/login"
           >
             Login
           </Link>
+          <Link
+            className="rounded-lg font-medium px-4 py-2"
+            to="/sing-up"
+          >
+            Register
+          </Link>
+          </>
         )}
 
 

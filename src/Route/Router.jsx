@@ -9,6 +9,7 @@ import Details from "../Pages/Details";
 import MyPlants from "../Pages/MyPlants";
 import Update from "../Pages/Update";
 import Looding from "../Component/Looding";
+import PrivateRoute from "../Component/PrivateRoute";
 
 // import TermsAndConditions from "../Pages/TermsAndConditions";
 // import PrivacyPolucy from "../Pages/PrivacyPolucy";
@@ -33,12 +34,12 @@ export const route = createBrowserRouter([
       },
       {
         path: '/details/:id',
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader: ({params})=>fetch(`http://localhost:5400/plant/${params.id}`)
       },
       {
         path: "my-plant/:email",
-        element: <MyPlants></MyPlants>,
+        element:<MyPlants></MyPlants>,
         loader: ({params})=>fetch(`http://localhost:5400/plant-by-email?email=${params.email}`),
           method: 'GET'
          },
@@ -59,7 +60,7 @@ export const route = createBrowserRouter([
       //   { path: "/terms", element: <TermsAndConditions></TermsAndConditions> },
       {
         path: "add-plant",
-        element: <AddPlant></AddPlant>,
+        element: <PrivateRoute><AddPlant></AddPlant></PrivateRoute>,
       },
       { path: "/login", element: <Login></Login> },
 
