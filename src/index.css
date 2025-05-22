@@ -1,4 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+td,th{
+    border: 1px solid gray;
+    border-collapse: collapse;
+    padding: 5px;
+}
 

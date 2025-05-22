@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router"; 
 import axios from "axios";
+import { format } from "date-fns";
+
 
 const AllPlants = () => {
   const [plants, setPlants] = useState([]);
@@ -33,16 +35,18 @@ const AllPlants = () => {
           <option value="watering">Next Watering Date</option>
         </select>
       </div>
-
+        <p className="border border-gray-100 px-5 py-2 rounded-lg">{format(new Date(),'EEEE, MMMM MM, YYY')}</p>
       <table className="table mx-auto md:text-2xl">
         <thead>
-          <tr>
+          <tr className="text-gray-500 font-medium md:text-2xl">
             <th>No</th>
-            <th className="hidden md:block">Photo</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Category</th>
-            <th className="break-all hidden md:block">Watering Frequency</th>
+            <th>Watering <br /> Frequency</th>
             <th>Show Details</th>
+            
+          
           </tr>
         </thead>
 
@@ -50,9 +54,9 @@ const AllPlants = () => {
           {plants.map((plant, i) => (
             <tr key={plant._id}>
               <td>{i + 1}</td>
-              <td className="hidden md:block">
+              <td>
                 <div className="md:flex items-center gap-3">
-                  <div className="avatar">
+                  <div>
                     <div className="mask mask-squircle h-7 w-7 md:h-12 md:w-12">
                       <img src={plant.photo} alt="photo" />
                     </div>
@@ -61,7 +65,10 @@ const AllPlants = () => {
               </td>
               <td>{plant.userName}</td>
               <td>{plant.plantCategory}</td>
-              <td className="hidden md:block">{plant.wateringFrequency}</td>
+          
+              <td>
+              {plant.wateringFrequency}
+              </td>
               <td>
                 <Link
                   to={`/details/${plant._id}`}
@@ -70,6 +77,7 @@ const AllPlants = () => {
                   Details
                 </Link>
               </td>
+  
             </tr>
           ))}
         </tbody>

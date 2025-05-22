@@ -36,10 +36,12 @@ const Home = () => {
   
     }
 
+  
   return (
     <div>
 
       <Hero></Hero>
+
        <HomeSection></HomeSection>
 
 
