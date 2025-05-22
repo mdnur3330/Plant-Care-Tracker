@@ -1,15 +1,19 @@
 import React, { use } from "react";
 import { AuthContext } from "../Component/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddPlant = () => {
   const {user} = use(AuthContext)
+
+
+ const notify = () => toast("Plant added successfully!");
   const handelAddPlant = (e)=>{
     e.preventDefault()
     const form = e.target;
     const formData = new FormData(form);
     const newPlant = Object.fromEntries(formData.entries())
     console.log(newPlant);
-
+   
 
     fetch("http://localhost:5400/plant",{
       method: "POST",
@@ -19,10 +23,14 @@ const AddPlant = () => {
       body: JSON.stringify(newPlant)
     }).then(res => res.json()).then(data =>{
       console.log("after adding data ",data);
+      if(data.insertedId){
+        notify()
+      }
     })
   }
   return (
     <div className="card w-full  shrink-0 shadow-2xl my-10">
+     
       <h3 className="text-center text-4xl">AddPlant</h3>
       <form onSubmit={handelAddPlant} className="mx-auto">
         <div className="card-body grid md:grid-cols-2 gap-4 mx-auto">
@@ -141,7 +149,7 @@ const AddPlant = () => {
          <input type="submit" value='Add Plant' className="btn bg-gray-600 w-full" />
         </div>
         </div>
-       
+       <ToastContainer />
       </form>
     </div>
   );
