@@ -134,7 +134,7 @@ const AddPlant = () => {
         </div>
          <fieldset>
               <label className="md:text-2xl">Description</label><br />
-              <textarea name="description" id="" className="border border-gray-500 pt-2 text-xl rounded-sm mt-2" cols="45" rows="4" placeholder="Description heare..."></textarea>
+              <textarea name="description" id="" className="border border-gray-500 pt-2 text-xl rounded-sm mt-2"  md:cols="45" rows="4" placeholder="Description heare..."></textarea>
             </fieldset>
         <div className="col-span-1 md:col-span-2">
           
