@@ -10,11 +10,9 @@ import MyPlants from "../Pages/MyPlants";
 import Update from "../Pages/Update";
 import Looding from "../Component/Looding";
 import PrivateRoute from "../Component/PrivateRoute";
+import TermsAndConditions from "../Component/TermsAndConditions";
+import PrivacyPolucy from "../Component/PrivacyPolucy";
 
-// import TermsAndConditions from "../Pages/TermsAndConditions";
-// import PrivacyPolucy from "../Pages/PrivacyPolucy";
-// import PrivateRoute from "../Pages/PrivateRoute";
-// import Error from "../Pages/Error";
 
 export const route = createBrowserRouter([
   {
@@ -57,7 +55,7 @@ export const route = createBrowserRouter([
       //     ),
       //   },
 
-      //   { path: "/terms", element: <TermsAndConditions></TermsAndConditions> },
+        { path: "/terms", element: <TermsAndConditions></TermsAndConditions>},
       {
         path: "add-plant",
         element: <PrivateRoute><AddPlant></AddPlant></PrivateRoute>,
@@ -66,7 +64,7 @@ export const route = createBrowserRouter([
 
       { path: "/sing-up", element: <SignUp></SignUp> },
 
-      //   { path: "/privacy", element: <PrivacyPolucy></PrivacyPolucy> },
+        { path: "/privacy", element: <PrivacyPolucy></PrivacyPolucy> },
     ],
   },
 

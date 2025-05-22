@@ -11,17 +11,12 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div>
+    <div className=" text-gray-600">
       <div className="w-9/12 mx-auto md:flex justify-evenly md:pl-9  border-b border-dashed border-gray-300 pb-10 space-y-6">
         <div className="flex-1">
           <h2 className="text-4xl my-4 font-bold">HariCare </h2>
           <p>
-            Stacked — Your Ultimate Subscription Hub Discover, compare, and
-            manage your favorite subscription services all in one place. From
-            entertainment and gaming to productivity and cloud storage, Stacked
-            helps you stay organized and make the most of every plan. Simplify
-            your digital life with personalized recommendations and exclusive
-            deals—because when it comes to subscriptions, we've got you stacked!
+         Planet is more than just a marketplace — it's a growing community for plant lovers. Whether you're looking to buy or sell indoor or outdoor plants, we make the process simple, enjoyable, and reliable. Our mission is to inspire people to live greener by making plants a part of everyday life. With expert care tips, curated collections, and a passion for sustainability, we help you create vibrant spaces filled with nature. Join us in spreading the love for plants and making the world a little greener — one leaf at a time.
           </p>
         </div>
         <div className="flex-1 md:pl-30 ">

@@ -19,7 +19,7 @@ const Root = () => {
             <main>
                 <Outlet></Outlet>
             </main>
-            <footer>
+            <footer className='bg-green-50 py-10'>
                 <Footer></Footer>
             </footer>
         </div>

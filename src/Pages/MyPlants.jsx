@@ -58,13 +58,12 @@ className="text-gray-600"
               {plant.description}
             </p>
             <div className="flex justify-between">
-                <Link to={`/update/${plant._id}`}
-            
-              className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 btn"
+                <Link className="border border-gray-500  px-5 py-2 font-medium rounded-md" to={`/update/${plant._id}`}
+          
             >
              Update Plant
             </Link>
-            <button className="btn" onClick={()=>handelPlantDelete(plant._id)}>Remove</button>
+            <button className="border border-gray-500  px-5 py-2 font-medium rounded-md" onClick={()=>handelPlantDelete(plant._id)}>Remove</button>
             </div>
           </div>
         </div>)}
