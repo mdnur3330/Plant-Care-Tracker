@@ -12,6 +12,7 @@ import Looding from "../Component/Looding";
 import PrivateRoute from "../Component/PrivateRoute";
 import TermsAndConditions from "../Component/TermsAndConditions";
 import PrivacyPolucy from "../Component/PrivacyPolucy";
+import Test from "../Pages/Test";
 
 
 export const route = createBrowserRouter([
@@ -67,6 +68,10 @@ export const route = createBrowserRouter([
         { path: "/privacy", element: <PrivacyPolucy></PrivacyPolucy> },
     ],
   },
+  {
+    path: '/test',
+    element: <Test></Test>
+  }
 
   //   {
   //     path: "/*",
