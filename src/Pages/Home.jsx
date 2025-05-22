@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Component/AuthProvider";
@@ -12,7 +12,11 @@ const Home = () => {
     console.log(initialPlnats);
     
     const {handelDelete} = useContext(AuthContext)
-    const [plants, setPlants] = useState(initialPlnats)
+    const [plants, setPlants] = useState([])
+    
+    useEffect(()=>{
+      setPlants(initialPlnats.slice(0, 6));
+    },[initialPlnats])
     
     const handelPlantDelete =(id)=>{
       handelDelete(id).then(res => res.json()).then(data =>{

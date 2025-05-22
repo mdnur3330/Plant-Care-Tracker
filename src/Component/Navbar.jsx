@@ -173,7 +173,7 @@ const Navbar = () => {
  
     <div>
     
-      <h3 className="text-xl text-left font-medium">Stacked</h3>
+      <h3 className="text-xl text-left font-medium">HariCare</h3>
     </div>
     <div className="navbar-end">
       <div className=" flex gap-5">
