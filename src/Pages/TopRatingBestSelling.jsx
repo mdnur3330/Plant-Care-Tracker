@@ -15,7 +15,7 @@ const TopRatingBestSelling = () => {
           </span>
           <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
         </h2>
-        <p className="text-gray-700 lg:text-sm lg:max-w-md">
+        <p className="lg:text-sm lg:max-w-md">
           "Class is dead", says Foucault; however, according to Reicher, it is
           not so much class that is dead, but rather the absurdity, and some
           would say the paradigm, of class. However, the subject is interpolated
@@ -27,7 +27,7 @@ const TopRatingBestSelling = () => {
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
           <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400">
-            <svg className="text-teal-900 w-7 h-7" viewBox="0 0 24 24">
+            <svg className="w-7 h-7" viewBox="0 0 24 24">
               <polyline
                 fill="none"
                 stroke="currentColor"
@@ -70,7 +70,8 @@ const TopRatingBestSelling = () => {
             </svg>
           </div>
           <div className="max-w-xl mb-6">
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight 
+            sm:text-4xl sm:leading-none">
              Beautiful plant
 
 
@@ -80,7 +81,7 @@ const TopRatingBestSelling = () => {
                 to get creative.
               </span>
             </h2>
-            <p className="text-base text-gray-700 md:text-lg">
+            <p className="text-base md:text-lg">
            Show Off Your Green Style with Beautiful Plant Stands
 Elevate your indoor garden with stylish plant stands that do more than just hold your plants — they inspire creativity. Whether you prefer a minimalist look, a boho vibe, or a modern aesthetic, our beautifully crafted plant stands let you mix, match, and design your own green corners just the way you like. Add height, dimension, and personality to any space — and turn your plants into art.
             </p>

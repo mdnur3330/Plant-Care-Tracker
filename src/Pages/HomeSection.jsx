@@ -15,7 +15,7 @@ const HomeSection = () => {
             title="Logo"
             className="inline-block mb-5"
           >
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full ">
               <svg
                 className="w-10 h-10 text-deep-purple-accent-400"
                 stroke="currentColor"
@@ -40,7 +40,7 @@ const HomeSection = () => {
               with plants
             </span>
           </h5>
-          <p className="mb-6 text-gray-900">
+          <p className="mb-6">
         Add a touch of nature to your home with beautiful, refreshing indoor plants. Not only do they enhance the beauty of your space, but they also purify the air and create a calm, peaceful atmosphere. Whether it's a cozy corner or your work desk, plants bring life, color, and freshness wherever they're placed. Make your home feel more alive — naturally.
           </p>
           <hr className="mb-5 border-gray-300" />

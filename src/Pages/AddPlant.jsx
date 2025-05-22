@@ -24,79 +24,79 @@ const AddPlant = () => {
   return (
     <div className="card w-full  shrink-0 shadow-2xl my-10">
       <h3 className="text-center text-4xl">AddPlant</h3>
-      <form onSubmit={handelAddPlant}>
-        <div className="card-body grid md:grid-cols-2 w-9/12 mx-auto">
+      <form onSubmit={handelAddPlant} className="mx-auto">
+        <div className="card-body grid md:grid-cols-2 gap-4 mx-auto">
        
           <fieldset className="fieldset">
-            <label className="label">User Name</label>
+            <label className="label md:text-2xl">User Name</label>
             <input
               type="text"
-              className="input"
+              className="input text-xl bg-gray-400 "
               name="userName"
               value={user?.displayName}
               placeholder="Name"
             />
           </fieldset>
             <fieldset className="fieldset">
-            <label className="label">User Email</label>
+            <label className="label md:text-2xl">User Email</label>
             <input
               type="email"
-              className="input"
+              className="input text-xl bg-gray-400"
               name="email"
               value={user?.email}
               placeholder="Email"
             />
           </fieldset>
           <fieldset className="fieldset">
-            <label className="label">Photo Url</label>
+            <label className="label md:text-2xl">Photo Url</label>
             <input
               type="text"
-              className="input"
+              className="input text-xl bg-gray-400"
               name="photo"
               placeholder="Photo Url"
             />
           </fieldset>
           <fieldset className="fieldset">
-            <label className="label">Plant Name</label>
+            <label className="label md:text-2xl">Plant Name</label>
             <input
               type="text"
-              className="input"
-              name="plantName"
+              className="input text-xl bg-gray-400"
+              name="plantName bg-gray-400"
               placeholder="Plant Name"
             />
           </fieldset>
           <fieldset className="fieldset">
-            <label className="label">Last Watered Date</label>
+            <label className="label md:text-2xl">Last Watered Date</label>
             <input
               type="date"
-              className="input"
+              className="input text-xl bg-gray-400"
               name="lastWateredDate"
               placeholder="Last Watered Date"
             />
           </fieldset>
           <fieldset className="fieldset">
-            <label className="label">Next Watering Date</label>
+            <label className="label md:text-2xl">Next Watering Date</label>
             <input
               type="date"
-              className="input"
+              className="input text-xl bg-gray-400"
               name="nextWateringDate"
               placeholder="Next Watering Date"
             />
           </fieldset>
           <fieldset className="fieldset">
-            <label className="label">Watering Frequency</label>
+            <label className="label md:text-2xl">Watering Frequency</label>
             <input
               type="text"
-              className="input"
+              className="input text-xl bg-gray-400"
               name="wateringFrequency"
               placeholder="Watering Frequency"
             />
           </fieldset>
           <fieldset className="fieldset">
-            <label className="label">Health Status</label>
+            <label className="label md:text-2xl">Health Status</label>
             <input
               type="text"
-              className="input"
+              className="input text-xl bg-gray-400"
               name="healthStatus"
               placeholder="Health Status"
             />
@@ -104,8 +104,8 @@ const AddPlant = () => {
           
          <div className="flex gap-3">
             <fieldset>
-            <label>Plant Category:</label> <br />
-            <select name="plantCategory" className="border px-5 py-2 my-2">
+            <label className="md:text-2xl">Plant Category:</label> <br />
+            <select name="plantCategory" className="border px-5 py-2 my-2 text-gray-400">
               <option  selected>select</option>
               <option value={"Succulent"}>Succulent</option>
               <option value={"Shrub"}>Shrub</option>
@@ -122,8 +122,8 @@ const AddPlant = () => {
             </select>
           </fieldset>
           <fieldset>
-            <label>Plant Care Level:</label> <br />
-            <select name="plantCareLevel" className="border px-5 py-2 my-2">
+            <label className="md:text-2xl">Plant Care Level:</label> <br />
+            <select name="plantCareLevel" className="border px-5 py-2 my-2 text-gray-400">
               
               <option value="">select</option>
               <option value="easy">easy</option>
@@ -133,12 +133,12 @@ const AddPlant = () => {
           </fieldset>
         </div>
          <fieldset>
-              <label htmlFor="">Description</label><br />
-              <textarea name="description" id="" className="border border-gray-500 pt-2 rounded-sm mt-2" cols="45" rows="4" placeholder="Description heare..."></textarea>
+              <label className="md:text-2xl">Description</label><br />
+              <textarea name="description" id="" className="border border-gray-500 pt-2 text-xl rounded-sm mt-2" cols="45" rows="4" placeholder="Description heare..."></textarea>
             </fieldset>
         <div className="col-span-1 md:col-span-2">
           
-         <input type="submit" value='Add Plant' className="btn w-full" />
+         <input type="submit" value='Add Plant' className="btn bg-gray-600 w-full" />
         </div>
         </div>
        

@@ -12,7 +12,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <div>
-      <div className="md:flex justify-evenly pl-9  border-b border-dashed border-gray-300 pb-10 space-y-6">
+      <div className="w-9/12 mx-auto md:flex justify-evenly md:pl-9  border-b border-dashed border-gray-300 pb-10 space-y-6">
         <div className="flex-1">
           <h2 className="text-4xl my-4 font-bold">Stacked </h2>
           <p>
@@ -46,27 +46,27 @@ const Footer = () => {
               to="https://www.facebook.com/profile.php?id=100067795436674"
               target="_blank"
             >
-              <FaFacebook size={30} color="white"></FaFacebook>
+              <FaFacebook size={30}></FaFacebook>
             </Link>
 
             <Link to="https://github.com/mdnur3330" target="_blank">
-              <FaGithub size={30} color="white"></FaGithub>
+              <FaGithub size={30} ></FaGithub>
             </Link>
 
             <Link
               to="https://www.linkedin.com/in/nur-alom1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
             >
-              <FaLinkedin size={30} color="white"></FaLinkedin>
+              <FaLinkedin size={30} ></FaLinkedin>
             </Link>
 
             <Link target="_blank" to="https://www.youtube.com/@hmnurulalom9359">
-              <FaYoutube size={30} color="white"></FaYoutube>
+              <FaYoutube size={30} ></FaYoutube>
             </Link>
 
             <Link target="_blank" to="https://wa.me/qr/HQUAFMEBDLC3G1">
               {" "}
-              <FaWhatsapp size={30} color="white"></FaWhatsapp>
+              <FaWhatsapp size={30} ></FaWhatsapp>
             </Link>
           </div>
         </div>

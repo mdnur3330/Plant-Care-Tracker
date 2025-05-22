@@ -2,16 +2,16 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
-  sendEmailVerification,
+
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "./firebase";
 import '../App.css'
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext();
 
@@ -45,24 +45,31 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  const userUpdateProfile = (updateData) => {
-    setLoding(true);
-    return updateProfile(auth.currentUser, updateData)
-      .then(() => {
-        setUser({ ...auth.currentUser });
-      })
-      .finally(() => {
-        setLoding(false);
-      });
-  };
-
-  const emailVerification = () => {
-    return sendEmailVerification(auth.currentUser);
-  };
 
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
   };
+ 
+ const handelDelete = (id) => {
+    return Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        return fetch(`http://localhost:5400/plant/${id}`, {
+          method: "DELETE",
+        });
+      } else {
+        return Promise.reject("User cancelled deletion");
+      }
+    });
+  };
+
 
   useEffect(() => {
     const getCurrentUser = onAuthStateChanged(auth, (currentUser) => {
@@ -79,9 +86,8 @@ const AuthProvider = ({ children }) => {
     loginWithGoogle,
     login,
     singOutUser,
-    userUpdateProfile,
     resetPassword,
-    emailVerification,
+    handelDelete,
     user,
     loding,
     darkMode,

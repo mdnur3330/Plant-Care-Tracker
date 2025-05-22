@@ -1,31 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Component/AuthProvider";
 
 const MyPlants = () => {
     const initialPlnats = useLoaderData()
     console.log(initialPlnats);
+    
+    const {handelDelete} = useContext(AuthContext)
     const [plants, setPlants] = useState(initialPlnats)
-
-
-    const handelDelete = (id)=>{
-
-
-
-      Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-
-  fetch(`http://localhost:5400/plant/${id}`,{
-        method:"DELETE"
-      }).then(res => res.json()).then(data =>{
+    
+    const handelPlantDelete =(id)=>{
+      handelDelete(id).then(res => res.json()).then(data =>{
         if(data.deletedCount){
           const newPlants = plants.filter(plant => plant._id !== id)
           setPlants(newPlants)
@@ -37,19 +23,16 @@ const MyPlants = () => {
       icon: "success"
     });
       })
-
-   
-  }
-});
-
-
-
-    
+      .catch((err) => {
+      console.log("Delete canceled or failed:", err);
+    });
+  
     }
+
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-       {plants.map(plant => <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm border border-gray-300">
+       {plants.map(plant => <div key={plant._id} className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm border border-gray-300">
           <div>
             <img
             src={plant.photo}
@@ -81,7 +64,7 @@ className="text-gray-600"
             >
              Update Plant
             </Link>
-            <button className="btn" onClick={()=>handelDelete(plant._id)}>Remove</button>
+            <button className="btn" onClick={()=>handelPlantDelete(plant._id)}>Remove</button>
             </div>
           </div>
         </div>)}
