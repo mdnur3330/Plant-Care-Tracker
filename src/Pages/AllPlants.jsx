@@ -35,6 +35,7 @@ const AllPlants = () => {
           <option value="watering">Next Watering Date</option>
         </select>
       </div>
+         Cutrrent Date
         <p className="border border-gray-100 px-5 py-2 rounded-lg">{format(new Date(),'EEEE, MMMM MM, YYY')}</p>
       <table className="table mx-auto md:text-2xl">
         <thead>
