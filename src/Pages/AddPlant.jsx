@@ -6,7 +6,8 @@ const AddPlant = () => {
   const {user} = use(AuthContext)
 
 
- const notify = () => toast("Plant added successfully!");
+ const notify = () => toast.success("Plant added successfully!'");
+
   const handelAddPlant = (e)=>{
     e.preventDefault()
     const form = e.target;
@@ -69,7 +70,7 @@ const AddPlant = () => {
             <input
               type="text"
               className="input text-xl bg-gray-400"
-              name="plantName bg-gray-400"
+              name="plantName"
               placeholder="Plant Name"
             />
           </fieldset>
@@ -97,7 +98,7 @@ const AddPlant = () => {
               type="text"
               className="input text-xl bg-gray-400"
               name="wateringFrequency"
-              placeholder="Watering Frequency"
+              placeholder="(e.g., every 3 days)"
             />
           </fieldset>
           <fieldset className="fieldset">
@@ -106,7 +107,7 @@ const AddPlant = () => {
               type="text"
               className="input text-xl bg-gray-400"
               name="healthStatus"
-              placeholder="Health Status"
+              placeholder="(easy, moderate, difficult)"
             />
           </fieldset>
           

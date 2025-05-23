@@ -42,7 +42,7 @@ const Login = () => {
           text: "You’re now logged in.",
           icon: "success",
         });
-       navigate(location.state?.pathname || '/')
+       navigate(location.state?.from.pathname || '/')
       })
       .catch((error) => {
       
@@ -190,18 +190,3 @@ export default Login;
 
 
 
-// https://ibb.co/Fqf5btNj
-// https://ibb.co/rKchcHBh
-// https://ibb.co/wZ5pq7dJ
-// https://ibb.co/MDD1z65y
-// https://ibb.co/FbmpHtgj
-// https://ibb.co/m5Mn9RyG
-// https://ibb.co/6cNWN1Wf
-// https://ibb.co/ZRBVCykR
-// https://ibb.co/27w0Pd87
-// https://ibb.co/VWZXHtwT
-// https://ibb.co/PvBGhYMv
-// https://ibb.co/1fwgBm87
-// https://ibb.co/390mSfMs
-
-// erteri440@gmail.com

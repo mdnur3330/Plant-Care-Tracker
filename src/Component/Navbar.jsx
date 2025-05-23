@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-    <div className="navbar md:flex justify-between shadow px-20 hidden">
+    <div className="navbar lg:flex justify-between shadow px-20 hidden">
       <div className=" flex gap-4 items-center">
         <h3 className="text-2xl font-bold">HariCare</h3>
       <h2 className="break-all">{user?.email}</h2>
@@ -124,7 +124,7 @@ const Navbar = () => {
 
     {/* mobail navbar */}
 
-    <div className="navbar shadow-sm md:hidden">
+    <div className="navbar shadow-sm lg:hidden">
     
     <div className="navbar-start">
       <div className="dropdown">
@@ -151,7 +151,7 @@ const Navbar = () => {
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+          className="menu menu-sm text-white dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow bg-gray-950"
         >
           <li>
             <Link to="/">Home</Link>

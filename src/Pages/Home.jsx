@@ -12,11 +12,11 @@ const Home = () => {
     console.log(initialPlnats);
     
     const {handelDelete} = useContext(AuthContext)
-    const [plants, setPlants] = useState([])
+    const [plants, setPlants] = useState(initialPlnats)
     
-    useEffect(()=>{
-      setPlants(initialPlnats.slice(0, 6));
-    },[initialPlnats])
+    // useEffect(()=>{
+    //   setPlants(initialPlnats.slice(0, 6));
+    // },[initialPlnats])
     
     const handelPlantDelete =(id)=>{
       handelDelete(id).then(res => res.json()).then(data =>{
@@ -70,12 +70,12 @@ className="text-gray-600"
               <span className="text-gray-600">— {plant.lastWateredDate}</span>
             </div>
             <p
-              className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 text-gray-900" 
+              className="inline-block mb-3 text-xl font-bold leading-5 transition-colors duration-200" 
             >
-              {plant.plantName}
+              Name: {plant.plantName}
             </p>
             <p className="mb-2 text-gray-700 h-12 truncate">
-              {plant.description}
+              Description: {plant.description}
             </p>
             <div className="flex justify-between items-center">
                 <Link to={`/details/${plant._id}`}

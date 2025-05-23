@@ -24,7 +24,7 @@ export const route = createBrowserRouter([
       {
         path: "",
         element: <Home></Home>,
-        loader: ()=>fetch("http://localhost:5400/plant"),
+        loader: ()=>fetch("http://localhost:5400/latest-plants"),
         hydrateFallbackElement: <Looding></Looding>
       },
       {
