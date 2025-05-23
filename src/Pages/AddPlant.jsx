@@ -16,7 +16,7 @@ const AddPlant = () => {
     console.log(newPlant);
    
 
-    fetch("http://localhost:5400/plant",{
+    fetch("https://57-module-assintment-10.vercel.app/plant",{
       method: "POST",
       headers:{
         'content-type': "application/json"

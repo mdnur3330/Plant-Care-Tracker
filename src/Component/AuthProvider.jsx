@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        return fetch(`http://localhost:5400/plant/${id}`, {
+        return fetch(`https://57-module-assintment-10.vercel.app/plant/${id}`, {
           method: "DELETE",
         });
       } else {

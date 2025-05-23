@@ -19,7 +19,7 @@ const Update = () => {
     console.log(newPlant);
 
 
-    fetch(`http://localhost:5400/plant/${plant._id}`,{
+    fetch(`https://57-module-assintment-10.vercel.app/plant/${plant._id}`,{
       method: "PUT",
       headers:{
         'content-type': "application/json"

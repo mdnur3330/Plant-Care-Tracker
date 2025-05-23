@@ -24,30 +24,30 @@ export const route = createBrowserRouter([
       {
         path: "",
         element: <Home></Home>,
-        loader: ()=>fetch("http://localhost:5400/latest-plants"),
+        loader: ()=>fetch("https://57-module-assintment-10.vercel.app/latest-plants"),
         hydrateFallbackElement: <Looding></Looding>
       },
       {
         path: "all-plant",
         element: <AllPlants></AllPlants>,
-        loader: ()=>fetch('http://localhost:5400/plant'),
+        loader: ()=>fetch('https://57-module-assintment-10.vercel.app/plant'),
         hydrateFallbackElement: <Looding></Looding>
       },
       {
         path: '/details/:id',
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5400/plant/${params.id}`)
+        loader: ({params})=>fetch(`https://57-module-assintment-10.vercel.app/plant/${params.id}`)
       },
       {
         path: "my-plant/:email",
         element: <PrivateRoute><MyPlants></MyPlants></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5400/plant-by-email?email=${params.email}`),
+        loader: ({params})=>fetch(`https://57-module-assintment-10.vercel.app/plant-by-email?email=${params.email}`),
           method: 'GET'
          },
          {
           path: '/update/:id',
           element: <Update></Update>,
-          loader: ({params})=>fetch(`http://localhost:5400/plant/${params.id}`)
+          loader: ({params})=>fetch(`https://57-module-assintment-10.vercel.app/plant/${params.id}`)
          },
       //   {
       //     path: "profile",

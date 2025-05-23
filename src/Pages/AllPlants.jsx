@@ -11,7 +11,7 @@ const AllPlants = () => {
 
   const fetchPlants = async () => {
     try {
-      const res = await axios.get(`http://localhost:5400/plant${sortBy ? `?sort=${sortBy}` : ""}`);
+      const res = await axios.get(`https://57-module-assintment-10.vercel.app/plant${sortBy ? `?sort=${sortBy}` : ""}`);
       setPlants(res.data);
     } catch (error) {
       console.error("Error fetching plants:", error);
@@ -37,7 +37,7 @@ const AllPlants = () => {
       </div>
          Cutrrent Date
         <p className="border border-gray-100 px-5 py-2 rounded-lg">{format(new Date(),'EEEE, MMMM MM, YYY')}</p>
-      <table className="table mx-auto md:text-2xl">
+      <table className="table mx-auto text-sm md:text-2xl">
         <thead>
           <tr className="text-gray-500 font-medium md:text-2xl">
             <th>No</th>
