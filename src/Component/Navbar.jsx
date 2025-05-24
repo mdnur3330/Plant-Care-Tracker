@@ -102,7 +102,7 @@ const Navbar = () => {
               onClick={handelSignOUt}
               className="rounded-lg text-gray-600 font-bold"
             >
-              SignOut
+              Log out
             </button>
           ) : (
             <>

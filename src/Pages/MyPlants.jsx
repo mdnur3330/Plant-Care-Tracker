@@ -25,7 +25,7 @@ const MyPlants = () => {
         console.log("after deleteing", data);
         Swal.fire({
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: "Your plant has been deleted.",
           icon: "success",
         });
       })
