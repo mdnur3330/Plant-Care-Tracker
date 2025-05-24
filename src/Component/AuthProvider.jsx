@@ -47,7 +47,9 @@ const AuthProvider = ({ children }) => {
 
   const userUpdateProfile = (updateData) => {
     setLoding(true);
-    return updateProfile(auth.currentUser, updateData);
+    return updateProfile(auth.currentUser, updateData).then(()=>{setUser({...auth.currentUser})}).finally(() => {
+            setLoding(false);
+        });
   };
 
   const toggleTheme = () => {

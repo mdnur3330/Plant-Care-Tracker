@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {} from "react";
 import { Link, useLoaderData } from "react-router";
-import Swal from "sweetalert2";
-import { AuthContext } from "../Component/AuthProvider";
+// import Swal from "sweetalert2";
+// import { AuthContext } from "../Component/AuthProvider";
 import Hero from "./Hero";
 
 import HomeSection from "./HomeSection";
@@ -12,38 +12,43 @@ const Home = () => {
   const initialPlnats = useLoaderData();
   console.log(initialPlnats);
 
-  const { handelDelete } = useContext(AuthContext);
+  // const { handelDelete } = useContext(AuthContext);
   // const [plants, setPlants] = useState(initialPlnats)
-  const [plants, setPlants] = useState(
-    Array.isArray(initialPlnats) ? initialPlnats : []
-  );
+  // const [plants, setPlants] = useState(
+  //   Array.isArray(initialPlnats) ? initialPlnats : []
+  // );
 
   // useEffect(()=>{
+  //   fetch("https://57-module-assintment-10.vercel.app/latest-plants").then(res => res.json()).then(data => {
+  //           console.log(data);
+  //           setPlants(data);
+  //         })
   //   setPlants(initialPlnats.slice(0, 6));
-  // },[initialPlnats])
+  // },[plants])
 
-  const handelPlantDelete = (id) => {
-    handelDelete(id)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount) {
-          const newPlants = plants.filter((plant) => plant._id !== id);
-          setPlants(newPlants);
-        }
-        console.log("after deleteing", data);
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
-        });
-      })
-      .catch((err) => {
-        //      Swal.fire({
-        //   title: err.massege,
-        //   icon: "errore"
-        // });
-      });
-  };
+  // const handelPlantDelete = (id) => {
+  //   handelDelete(id)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.deletedCount) {
+  //         const newPlants =  plants.filter((plant) => plant._id !== id);
+  //         setPlants(newPlants);
+  //       }
+         
+  //       console.log("after deleteing", data);
+  //       Swal.fire({
+  //         title: "Deleted!",
+  //         text: "Your file has been deleted.",
+  //         icon: "success",
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       //      Swal.fire({
+  //       //   title: err.massege,
+  //       //   icon: "errore"
+  //       // });
+  //     });
+  // };
 
   return (
     <div>
@@ -58,7 +63,7 @@ const Home = () => {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <h1 className="text-5xl font-medium my-20">New Plants</h1>
         <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-          {plants.map((plant) => (
+          {initialPlnats.map((plant) => (
             <div
               key={plant._id}
               className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm border border-gray-300"
@@ -91,12 +96,12 @@ const Home = () => {
                     Details
                   </Link>
 
-                  <button
+                  {/* <button
                     className="border border-gray-500  px-5 py-2 font-medium rounded-md"
                     onClick={() => handelPlantDelete(plant._id)}
                   >
                     Remove
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

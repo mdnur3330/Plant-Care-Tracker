@@ -98,7 +98,7 @@ const Login = () => {
     setHideShow(!hideShow);
   };
   return (
-    <div className="hero min-h-screen ">
+    <div className="hero my-4 md:my-8">
       <Helmet>
         <title>LogIn</title>
       </Helmet>

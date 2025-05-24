@@ -101,7 +101,7 @@ const SignUp = () => {
 
         Swal.fire({
           title: "Congratulations!",
-          text: "Your account created successfullu!",
+          text: "Your account created successfully!",
           icon: "success",
         });
         navigate("/");
@@ -122,7 +122,7 @@ const SignUp = () => {
       .then(() => {
         Swal.fire({
           title: "Congratulations!",
-          text: "Your account created successfullu!",
+          text: "Your account created successfully!",
           icon: "success",
         });
         navigate("/");
@@ -144,14 +144,14 @@ const SignUp = () => {
     setHideShowConfirm(!hideShowConfirm);
   };
   return (
-    <div className="my-10">
+    <div className="my-3 md:my-7">
       <Helmet>
         <title>SignUp</title>
       </Helmet>
-      <div className="hero min-h-screen">
+      <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
           <div className="card  w-full max-w-sm shrink-0 shadow-2xl">
-            <div className="card-body p-8 border border-gray-300">
+            <div className="card-body p-5 md:p-8 border border-gray-300">
               <h1 className="text-5xl font-medium">SignUp now!</h1>
               <form onSubmit={handelSignUp}>
                 <label className="label text-xl">Name</label>
