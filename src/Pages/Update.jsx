@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { AuthContext } from "../Component/AuthProvider";
 import { useLoaderData } from 'react-router';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 
@@ -37,6 +38,9 @@ const Update = () => {
   }
   return (
     <div className="card w-full  shrink-0 shadow-2xl my-10 p-20">
+        <Helmet>
+    <title>Update Plant</title>
+</Helmet>
       <h3 className="text-center text-5xl">Update Plant</h3>
       <form onSubmit={handeUpdatePlant} className="mx-auto">
         <div className="card-body grid md:grid-cols-2 gap-5 mx-auto">

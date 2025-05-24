@@ -1,6 +1,7 @@
 import { useLottie, useLottieInteractivity } from "lottie-react";
 import robotAnimation from "./Animation - 1747932817819.json";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet";
 
 const style = {
   height: 400,
@@ -28,6 +29,9 @@ const ErrorPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <Helmet>
+    <title>Error Page</title>
+</Helmet>
       {InteractiveView}
       <h1 className="text-4xl font-bold text-red-600 mt-8">404 - Page Not Found</h1>
       <p className="text-gray-600 mt-4">Oops! The page you're looking for doesn't exist.</p>
@@ -43,15 +47,3 @@ const ErrorPage = () => {
 
 export default ErrorPage;
 
-
-// import React from 'react';
-
-// const ErrorPage = () => {
-//     return (
-//         <div>
-//             this is reo
-//         </div>
-//     );
-// };
-
-// export default ErrorPage;

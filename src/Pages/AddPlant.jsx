@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { AuthContext } from "../Component/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
+import { Helmet } from "react-helmet";
 
 const AddPlant = () => {
   const {user} = use(AuthContext)
@@ -26,13 +27,16 @@ const AddPlant = () => {
       console.log("after adding data ",data);
       if(data.insertedId){
         notify()
+       form.reset()
       }
     })
   }
   return (
     <div className="card w-full  shrink-0 shadow-2xl my-10">
-     
-      <h3 className="text-center text-4xl">AddPlant</h3>
+       <Helmet>
+         <title>Add Plant</title>
+     </Helmet>
+      <h3 className="text-center pt-3 text-4xl">AddPlant</h3>
       <form onSubmit={handelAddPlant} className="mx-auto">
         <div className="card-body grid md:grid-cols-2 gap-4 mx-auto">
        
@@ -107,7 +111,7 @@ const AddPlant = () => {
               type="text"
               className="input text-xl bg-gray-400"
               name="healthStatus"
-              placeholder="(easy, moderate, difficult)"
+              placeholder="(Needs Water, New Growth, Pest Infested)"
             />
           </fieldset>
           

@@ -1,6 +1,6 @@
 # 🌿 Plant Care Tracker
 
-<!-- **Live Site:** [https://your-live-url.com](https://your-live-url.com) -->
+**Live Site:** [https://plant-bda56.web.app/](https://plant-bda56.web.app/)
 
 Plant Care Tracker is a full-stack responsive web application designed to help users manage and monitor the care of their plants. This project allows users to track plant details, watering schedules, and more with a user-friendly interface.
 

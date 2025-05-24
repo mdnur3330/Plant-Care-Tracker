@@ -12,7 +12,6 @@ import Looding from "../Component/Looding";
 import PrivateRoute from "../Component/PrivateRoute";
 import TermsAndConditions from "../Component/TermsAndConditions";
 import PrivacyPolucy from "../Component/PrivacyPolucy";
-import Test from "../Pages/Test";
 import ErrorPage from "../Component/ErrorPage";
 
 
@@ -49,15 +48,6 @@ export const route = createBrowserRouter([
           element: <Update></Update>,
           loader: ({params})=>fetch(`https://57-module-assintment-10.vercel.app/plant/${params.id}`)
          },
-      //   {
-      //     path: "profile",
-      //     element: (
-      //       <PrivateRoute>
-      //         <Profile></Profile>
-      //       </PrivateRoute>
-      //     ),
-      //   },
-
         { path: "/terms", element: <TermsAndConditions></TermsAndConditions>},
       {
         path: "add-plant",
@@ -69,10 +59,6 @@ export const route = createBrowserRouter([
 
         { path: "/privacy", element: <PrivacyPolucy></PrivacyPolucy> },
     ],
-  },
-  {
-    path: '/test',
-    element: <Test></Test>
   },
 {
       path: "/*",

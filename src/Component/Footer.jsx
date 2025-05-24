@@ -14,13 +14,16 @@ const Footer = () => {
     <div className=" text-gray-600">
       <div className="w-9/12 mx-auto md:flex justify-evenly md:pl-9  border-b border-dashed border-gray-300 pb-10 space-y-6">
         <div className="flex-1">
-          <h2 className="text-4xl my-4 font-bold">HariCare </h2>
+          <h2 className="text-sm md:text-4xl my-4 font-medium">HariCare </h2>
           <p>
-         Planet is more than just a marketplace — it's a growing community for plant lovers. Whether you're looking to buy or sell indoor or outdoor plants, we make the process simple, enjoyable, and reliable. Our mission is to inspire people to live greener by making plants a part of everyday life. With expert care tips, curated collections, and a passion for sustainability, we help you create vibrant spaces filled with nature. Join us in spreading the love for plants and making the world a little greener — one leaf at a time.
+       HariCare  isn’t just a planet marketplace — it’s a vibrant community for plant lovers.
+Buy, sell, and explore indoor and outdoor plants with ease.
+We promote greener living through expert care tips, curated collections, and a commitment to sustainability.
+Grow your green space — one leaf at a time.
           </p>
         </div>
         <div className="flex-1 md:pl-30 ">
-          <h3 className="text-2xl my-4 font-bold ">Quick Links</h3>
+          <h3 className="text-sm md:text-2xl my-4 font-medium ">Quick Links</h3>
           <ul className="text-left text-2xl space-y-5">
             <li>
               <Link className="underline" to="/terms">
@@ -35,7 +38,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex-1 md:text-center">
-          <h3 className="text-2xl my-4 font-bold ">Follow Us</h3>
+          <h3 className="text-sm md:text-2xl my-4 font-medium ">Follow Us</h3>
           <div className="flex md:justify-center gap-5">
             <Link
               to="https://www.facebook.com/profile.php?id=100067795436674"

@@ -2,11 +2,11 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
-
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "./firebase";
@@ -45,6 +45,12 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
+
+
+    const userUpdateProfile = (updateData)=>{
+        setLoding(true)
+        return updateProfile(auth.currentUser, updateData)
+    };
 
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
@@ -92,6 +98,7 @@ const AuthProvider = ({ children }) => {
     loding,
     darkMode,
     toggleTheme,
+    userUpdateProfile
   };
 
   return (

@@ -6,13 +6,15 @@ import Hero from './Hero';
 
 import HomeSection from './HomeSection';
 import TopRatingBestSelling from './TopRatingBestSelling';
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     const initialPlnats = useLoaderData()
     console.log(initialPlnats);
     
     const {handelDelete} = useContext(AuthContext)
-    const [plants, setPlants] = useState(initialPlnats)
+    // const [plants, setPlants] = useState(initialPlnats)
+    const [plants, setPlants] = useState(Array.isArray(initialPlnats) ? initialPlnats : []);
     
     // useEffect(()=>{
     //   setPlants(initialPlnats.slice(0, 6));
@@ -43,6 +45,9 @@ const Home = () => {
   
   return (
     <div>
+        <Helmet>
+    <title>Home</title>
+</Helmet>
 
       <Hero></Hero>
 

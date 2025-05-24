@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router"; 
 import axios from "axios";
 import { format } from "date-fns";
+import { Helmet } from "react-helmet";
 
 
 const AllPlants = () => {
@@ -24,6 +25,9 @@ const AllPlants = () => {
 
   return (
     <div className="px-1 md:w-9/12 mx-auto md:p-10 my-20">
+        <Helmet>
+    <title>All Plants</title>
+</Helmet>
       <div className="mb-6">
         <label className="font-semibold mr-2">Sort By:</label>
         <select
@@ -40,7 +44,7 @@ const AllPlants = () => {
       <table className="table mx-auto text-sm md:text-2xl">
         <thead>
           <tr className="text-gray-500 font-medium md:text-2xl">
-            <th>No</th>
+            <th className="hidden md:block">No</th>
             <th>Photo</th>
             <th>Name</th>
             <th>Category</th>
@@ -54,7 +58,7 @@ const AllPlants = () => {
         <tbody>
           {plants.map((plant, i) => (
             <tr key={plant._id}>
-              <td>{i + 1}</td>
+              <td className="hidden md:block">{i + 1}</td>
               <td>
                 <div className="md:flex items-center gap-3">
                   <div>
@@ -64,7 +68,7 @@ const AllPlants = () => {
                   </div>
                 </div>
               </td>
-              <td>{plant.userName}</td>
+              <td>{plant.plantName}</td>
               <td>{plant.plantCategory}</td>
           
               <td>

@@ -23,7 +23,7 @@ const SignUp = () => {
     const confirm = e.target.confirm.value;
     // console.log(password, email, confirm);
 
-    if (name.length < 7) {
+    if (name.length < 6) {
       return Swal.fire({
         icon: "error",
         text: "Invalid! Name must be more than 6 character!",
@@ -70,10 +70,22 @@ const SignUp = () => {
         color: "#333",
       });
     }
-
+  const userData = {
+      displayName: name,
+      photoURL: photo,
+    };
 
     signUp(email, password)
-      .then((user) => {
+      .then(() => {
+
+
+        userUpdateProfile(userData)
+          .then(() => {
+            console.log("update profile");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
   
         // emailVerification().then(() => {});
         
@@ -179,7 +191,7 @@ const SignUp = () => {
                   />
                   <div
                     onClick={handelPasswordHideShow}
-                    className="top-9 right-7 z-2 absolute cursor-pointer"
+                    className="top-10 right-7 z-2 absolute cursor-pointer"
                   >
                     {hideShow ? (
                       <FaEyeSlash size={20} />
@@ -199,7 +211,7 @@ const SignUp = () => {
                   />
                   <div
                     onClick={handelConfirmPasswordHideShow}
-                    className="top-9 right-7 z-2 absolute cursor-pointer"
+                    className="top-10 right-7 z-2 absolute cursor-pointer"
                   >
                     {hideShowConfirm ? (
                       <FaEyeSlash size={20}/>
