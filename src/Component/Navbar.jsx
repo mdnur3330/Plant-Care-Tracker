@@ -85,17 +85,16 @@ const Navbar = () => {
             )}
             <Tooltip id="user-tooltip" /> */}
 
-
             <img
-                className="w-10 h-10 rounded-full"
-                alt="User"
-                src={`${
-                  user
-                    ? user.photoURL
-                    : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                }`}
-                title={user?.displayName}
-              />
+              className="w-10 h-10 rounded-full"
+              alt="User"
+              src={`${
+                user
+                  ? user.photoURL
+                  : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              }`}
+              title={user?.displayName}
+            />
           </div>
 
           {user ? (
@@ -210,7 +209,8 @@ const Navbar = () => {
        
   />
 
-// )} */}{/* // <Tooltip id="user2-tooltip" /> */}
+// )} */}
+              {/* // <Tooltip id="user2-tooltip" /> */}
               <img
                 className="w-10 h-10 rounded-full ml-2"
                 alt="User"

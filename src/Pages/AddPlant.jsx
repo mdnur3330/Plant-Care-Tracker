@@ -1,45 +1,44 @@
 import React, { use } from "react";
 import { AuthContext } from "../Component/AuthProvider";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 
 const AddPlant = () => {
-  const {user} = use(AuthContext)
+  const { user } = use(AuthContext);
 
+  const notify = () => toast.success("Plant added successfully!'");
 
- const notify = () => toast.success("Plant added successfully!'");
-
-  const handelAddPlant = (e)=>{
-    e.preventDefault()
+  const handelAddPlant = (e) => {
+    e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const newPlant = Object.fromEntries(formData.entries())
+    const newPlant = Object.fromEntries(formData.entries());
     console.log(newPlant);
-   
 
-    fetch("https://57-module-assintment-10.vercel.app/plant",{
+    fetch("https://57-module-assintment-10.vercel.app/plant", {
       method: "POST",
-      headers:{
-        'content-type': "application/json"
+      headers: {
+        "content-type": "application/json",
       },
-      body: JSON.stringify(newPlant)
-    }).then(res => res.json()).then(data =>{
-      console.log("after adding data ",data);
-      if(data.insertedId){
-        notify()
-       form.reset()
-      }
+      body: JSON.stringify(newPlant),
     })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("after adding data ", data);
+        if (data.insertedId) {
+          notify();
+          form.reset();
+        }
+      });
+  };
   return (
     <div className="card w-full  shrink-0 shadow-2xl my-10">
-       <Helmet>
-         <title>Add Plant</title>
-     </Helmet>
+      <Helmet>
+        <title>Add Plant</title>
+      </Helmet>
       <h3 className="text-center pt-3 text-4xl">AddPlant</h3>
       <form onSubmit={handelAddPlant} className="mx-auto">
         <div className="card-body grid md:grid-cols-2 gap-4 mx-auto">
-       
           <fieldset className="fieldset">
             <label className="label md:text-2xl">User Name</label>
             <input
@@ -50,7 +49,7 @@ const AddPlant = () => {
               placeholder="Name"
             />
           </fieldset>
-            <fieldset className="fieldset">
+          <fieldset className="fieldset">
             <label className="label md:text-2xl">User Email</label>
             <input
               type="email"
@@ -114,52 +113,66 @@ const AddPlant = () => {
               placeholder="(Needs Water, New Growth, Pest Infested)"
             />
           </fieldset>
-          
-         <div className="flex gap-3">
+
+          <div className="flex gap-3">
             <fieldset>
-            <label className="md:text-2xl">Plant Category:</label> <br />
-            <select name="plantCategory" className="border px-5 py-2 my-2 text-gray-400">
-              <option  selected>select</option>
-              <option value={"Succulent"}>Succulent</option>
-              <option value={"Shrub"}>Shrub</option>
-              <option value={"Herb"}>Herb</option>
-              <option value={"Flowering"}>Flowering</option>
-              <option value={"Outdoor"}>Outdoor</option>
-              <option value={"Outdoor"}>Indoor</option>
-              <option value={"Tree"}>Tree</option>
-              <option value={"Cactus"}>Cactus</option>
-              <option value={"Bonsai"}>Bonsai</option>
-              <option value={"Aquatic"}> Aquatic</option>
-              <option value={"Climber"}>Climber</option>
-              <option value={"Vegetable Plant"}>Vegetable Plant</option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <label className="md:text-2xl">Plant Care Level:</label> <br />
-            <select name="plantCareLevel" className="border px-5 py-2 my-2 text-gray-400">
-              
-              <option value="">select</option>
-              <option value="easy">easy</option>
-              <option value="moderate">moderate</option>
-              <option value="difficult">difficult</option>
-            </select>
-          </fieldset>
-        </div>
-         <fieldset>
-              <label className="md:text-2xl">Description</label><br />
-              <textarea name="description" id="" className="border border-gray-500 pt-2 text-xl rounded-sm mt-2"  md:cols="45" rows="4" placeholder="Description heare..."></textarea>
+              <label className="md:text-2xl">Plant Category:</label> <br />
+              <select
+                name="plantCategory"
+                className="border px-5 py-2 my-2 text-gray-400"
+              >
+                <option selected>select</option>
+                <option value={"Succulent"}>Succulent</option>
+                <option value={"Shrub"}>Shrub</option>
+                <option value={"Herb"}>Herb</option>
+                <option value={"Flowering"}>Flowering</option>
+                <option value={"Outdoor"}>Outdoor</option>
+                <option value={"Outdoor"}>Indoor</option>
+                <option value={"Tree"}>Tree</option>
+                <option value={"Cactus"}>Cactus</option>
+                <option value={"Bonsai"}>Bonsai</option>
+                <option value={"Aquatic"}> Aquatic</option>
+                <option value={"Climber"}>Climber</option>
+                <option value={"Vegetable Plant"}>Vegetable Plant</option>
+              </select>
             </fieldset>
-        <div className="col-span-1 md:col-span-2">
-          
-         <input type="submit" value='Add Plant' className="btn bg-gray-600 w-full" />
+            <fieldset>
+              <label className="md:text-2xl">Plant Care Level:</label> <br />
+              <select
+                name="plantCareLevel"
+                className="border px-5 py-2 my-2 text-gray-400"
+              >
+                <option value="">select</option>
+                <option value="easy">easy</option>
+                <option value="moderate">moderate</option>
+                <option value="difficult">difficult</option>
+              </select>
+            </fieldset>
+          </div>
+          <fieldset>
+            <label className="md:text-2xl">Description</label>
+            <br />
+            <textarea
+              name="description"
+              id=""
+              className="border border-gray-500 pt-2 text-xl rounded-sm mt-2"
+              md:cols="45"
+              rows="4"
+              placeholder="Description heare..."
+            ></textarea>
+          </fieldset>
+          <div className="col-span-1 md:col-span-2">
+            <input
+              type="submit"
+              value="Add Plant"
+              className="btn bg-gray-600 w-full"
+            />
+          </div>
         </div>
-        </div>
-       <ToastContainer />
+        <ToastContainer />
       </form>
     </div>
   );
 };
 
 export default AddPlant;
-
-

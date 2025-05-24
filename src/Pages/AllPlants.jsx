@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
 import axios from "axios";
 import { format } from "date-fns";
 import { Helmet } from "react-helmet";
-
 
 const AllPlants = () => {
   const [plants, setPlants] = useState([]);
   const [sortBy, setSortBy] = useState("");
 
-
   const fetchPlants = async () => {
     try {
-      const res = await axios.get(`https://57-module-assintment-10.vercel.app/plant${sortBy ? `?sort=${sortBy}` : ""}`);
+      const res = await axios.get(
+        `https://57-module-assintment-10.vercel.app/plant${
+          sortBy ? `?sort=${sortBy}` : ""
+        }`
+      );
       setPlants(res.data);
     } catch (error) {
       console.error("Error fetching plants:", error);
@@ -25,9 +27,9 @@ const AllPlants = () => {
 
   return (
     <div className="px-1 md:w-9/12 mx-auto md:p-10 my-20">
-        <Helmet>
-    <title>All Plants</title>
-</Helmet>
+      <Helmet>
+        <title>All Plants</title>
+      </Helmet>
       <div className="mb-6">
         <label className="font-semibold mr-2">Sort By:</label>
         <select
@@ -39,8 +41,10 @@ const AllPlants = () => {
           <option value="watering">Next Watering Date</option>
         </select>
       </div>
-         Cutrrent Date
-        <p className="border border-gray-100 px-5 py-2 rounded-lg">{format(new Date(),'EEEE, MMMM MM, YYY')}</p>
+      Cutrrent Date
+      <p className="border border-gray-100 px-5 py-2 rounded-lg">
+        {format(new Date(), "EEEE, MMMM MM, YYY")}
+      </p>
       <table className="table mx-auto text-sm md:text-2xl">
         <thead>
           <tr className="text-gray-500 font-medium md:text-2xl">
@@ -48,10 +52,10 @@ const AllPlants = () => {
             <th>Photo</th>
             <th>Name</th>
             <th>Category</th>
-            <th>Watering <br /> Frequency</th>
+            <th>
+              Watering <br /> Frequency
+            </th>
             <th>Show Details</th>
-            
-          
           </tr>
         </thead>
 
@@ -70,10 +74,8 @@ const AllPlants = () => {
               </td>
               <td>{plant.plantName}</td>
               <td>{plant.plantCategory}</td>
-          
-              <td>
-              {plant.wateringFrequency}
-              </td>
+
+              <td>{plant.wateringFrequency}</td>
               <td>
                 <Link
                   to={`/details/${plant._id}`}
@@ -82,7 +84,6 @@ const AllPlants = () => {
                   Details
                 </Link>
               </td>
-  
             </tr>
           ))}
         </tbody>

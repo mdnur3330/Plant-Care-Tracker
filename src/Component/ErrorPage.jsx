@@ -29,12 +29,16 @@ const ErrorPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-        <Helmet>
-    <title>Error Page</title>
-</Helmet>
+      <Helmet>
+        <title>Error Page</title>
+      </Helmet>
       {InteractiveView}
-      <h1 className="text-4xl font-bold text-red-600 mt-8">404 - Page Not Found</h1>
-      <p className="text-gray-600 mt-4">Oops! The page you're looking for doesn't exist.</p>
+      <h1 className="text-4xl font-bold text-red-600 mt-8">
+        404 - Page Not Found
+      </h1>
+      <p className="text-gray-600 mt-4">
+        Oops! The page you're looking for doesn't exist.
+      </p>
       <Link
         to="/"
         className="mt-6 inline-block bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition"
@@ -46,4 +50,3 @@ const ErrorPage = () => {
 };
 
 export default ErrorPage;
-

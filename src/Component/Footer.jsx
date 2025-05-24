@@ -16,10 +16,11 @@ const Footer = () => {
         <div className="flex-1">
           <h2 className="text-sm md:text-4xl my-4 font-medium">HariCare </h2>
           <p>
-       HariCare  isn’t just a planet marketplace — it’s a vibrant community for plant lovers.
-Buy, sell, and explore indoor and outdoor plants with ease.
-We promote greener living through expert care tips, curated collections, and a commitment to sustainability.
-Grow your green space — one leaf at a time.
+            HariCare isn’t just a planet marketplace — it’s a vibrant community
+            for plant lovers. Buy, sell, and explore indoor and outdoor plants
+            with ease. We promote greener living through expert care tips,
+            curated collections, and a commitment to sustainability. Grow your
+            green space — one leaf at a time.
           </p>
         </div>
         <div className="flex-1 md:pl-30 ">
@@ -48,23 +49,23 @@ Grow your green space — one leaf at a time.
             </Link>
 
             <Link to="https://github.com/mdnur3330" target="_blank">
-              <FaGithub size={30} ></FaGithub>
+              <FaGithub size={30}></FaGithub>
             </Link>
 
             <Link
               to="https://www.linkedin.com/in/nur-alom1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
             >
-              <FaLinkedin size={30} ></FaLinkedin>
+              <FaLinkedin size={30}></FaLinkedin>
             </Link>
 
             <Link target="_blank" to="https://www.youtube.com/@hmnurulalom9359">
-              <FaYoutube size={30} ></FaYoutube>
+              <FaYoutube size={30}></FaYoutube>
             </Link>
 
             <Link target="_blank" to="https://wa.me/qr/HQUAFMEBDLC3G1">
               {" "}
-              <FaWhatsapp size={30} ></FaWhatsapp>
+              <FaWhatsapp size={30}></FaWhatsapp>
             </Link>
           </div>
         </div>

@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "./firebase";
-import '../App.css'
+import "../App.css";
 import Swal from "sweetalert2";
 
 export const AuthContext = createContext();
@@ -45,18 +45,16 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-
-
-    const userUpdateProfile = (updateData)=>{
-        setLoding(true)
-        return updateProfile(auth.currentUser, updateData)
-    };
+  const userUpdateProfile = (updateData) => {
+    setLoding(true);
+    return updateProfile(auth.currentUser, updateData);
+  };
 
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
   };
- 
- const handelDelete = (id) => {
+
+  const handelDelete = (id) => {
     return Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -75,7 +73,6 @@ const AuthProvider = ({ children }) => {
       }
     });
   };
-
 
   useEffect(() => {
     const getCurrentUser = onAuthStateChanged(auth, (currentUser) => {
@@ -98,7 +95,7 @@ const AuthProvider = ({ children }) => {
     loding,
     darkMode,
     toggleTheme,
-    userUpdateProfile
+    userUpdateProfile,
   };
 
   return (

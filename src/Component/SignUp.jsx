@@ -8,7 +8,7 @@ import { AuthContext } from "./AuthProvider";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { signUp, loginWithGoogle, userUpdateProfile} =
+  const { signUp, loginWithGoogle, userUpdateProfile } =
     useContext(AuthContext);
 
   const [hideShow, setHideShow] = useState(false);
@@ -70,15 +70,13 @@ const SignUp = () => {
         color: "#333",
       });
     }
-  const userData = {
+    const userData = {
       displayName: name,
       photoURL: photo,
     };
 
     signUp(email, password)
       .then(() => {
-
-
         userUpdateProfile(userData)
           .then(() => {
             console.log("update profile");
@@ -86,9 +84,9 @@ const SignUp = () => {
           .catch((error) => {
             console.log(error);
           });
-  
+
         // emailVerification().then(() => {});
-        
+
         //   .then(() => {
         //     console.log("update profile");
         //   })
@@ -106,7 +104,7 @@ const SignUp = () => {
           text: "Your account created successfullu!",
           icon: "success",
         });
-         navigate("/");
+        navigate("/");
         // console.log(user);
       })
       .catch((error) => {
@@ -196,7 +194,7 @@ const SignUp = () => {
                     {hideShow ? (
                       <FaEyeSlash size={20} />
                     ) : (
-                      <IoMdEye size={20}/>
+                      <IoMdEye size={20} />
                     )}
                   </div>
                 </div>
@@ -214,7 +212,7 @@ const SignUp = () => {
                     className="top-10 right-7 z-2 absolute cursor-pointer"
                   >
                     {hideShowConfirm ? (
-                      <FaEyeSlash size={20}/>
+                      <FaEyeSlash size={20} />
                     ) : (
                       <IoMdEye size={20} />
                     )}

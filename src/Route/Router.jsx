@@ -14,7 +14,6 @@ import TermsAndConditions from "../Component/TermsAndConditions";
 import PrivacyPolucy from "../Component/PrivacyPolucy";
 import ErrorPage from "../Component/ErrorPage";
 
-
 export const route = createBrowserRouter([
   {
     path: "/",
@@ -23,45 +22,67 @@ export const route = createBrowserRouter([
       {
         path: "",
         element: <Home></Home>,
-        loader: ()=>fetch("https://57-module-assintment-10.vercel.app/latest-plants"),
-        hydrateFallbackElement: <Looding></Looding>
+        loader: () =>
+          fetch("https://57-module-assintment-10.vercel.app/latest-plants"),
+        hydrateFallbackElement: <Looding></Looding>,
       },
       {
         path: "all-plant",
         element: <AllPlants></AllPlants>,
-        loader: ()=>fetch('https://57-module-assintment-10.vercel.app/plant'),
-        hydrateFallbackElement: <Looding></Looding>
+        loader: () => fetch("https://57-module-assintment-10.vercel.app/plant"),
+        hydrateFallbackElement: <Looding></Looding>,
       },
       {
-        path: '/details/:id',
-        element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({params})=>fetch(`https://57-module-assintment-10.vercel.app/plant/${params.id}`)
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://57-module-assintment-10.vercel.app/plant/${params.id}`
+          ),
       },
       {
         path: "my-plant/:email",
-        element: <PrivateRoute><MyPlants></MyPlants></PrivateRoute>,
-        loader: ({params})=>fetch(`https://57-module-assintment-10.vercel.app/plant-by-email?email=${params.email}`),
-          method: 'GET'
-         },
-         {
-          path: '/update/:id',
-          element: <Update></Update>,
-          loader: ({params})=>fetch(`https://57-module-assintment-10.vercel.app/plant/${params.id}`)
-         },
-        { path: "/terms", element: <TermsAndConditions></TermsAndConditions>},
+        element: (
+          <PrivateRoute>
+            <MyPlants></MyPlants>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://57-module-assintment-10.vercel.app/plant-by-email?email=${params.email}`
+          ),
+        method: "GET",
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(
+            `https://57-module-assintment-10.vercel.app/plant/${params.id}`
+          ),
+      },
+      { path: "/terms", element: <TermsAndConditions></TermsAndConditions> },
       {
         path: "add-plant",
-        element: <PrivateRoute><AddPlant></AddPlant></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddPlant></AddPlant>
+          </PrivateRoute>
+        ),
       },
       { path: "/login", element: <Login></Login> },
 
       { path: "/sing-up", element: <SignUp></SignUp> },
 
-        { path: "/privacy", element: <PrivacyPolucy></PrivacyPolucy> },
+      { path: "/privacy", element: <PrivacyPolucy></PrivacyPolucy> },
     ],
   },
-{
-      path: "/*",
-      element: <ErrorPage></ErrorPage>
-    },
+  {
+    path: "/*",
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);
