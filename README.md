@@ -1,26 +1,74 @@
 # 🌿 Plant Care Tracker
 
-**Live Site:** https://plant-bda56.web.app/
+🚀 **Live Site:** [https://plant-bda56.web.app/](https://plant-bda56.web.app/)
 
-Plant Care Tracker is a full-stack responsive web application designed to help users manage and monitor the care of their plants. This project allows users to track plant details, watering schedules, and more with a user-friendly interface.
-
----
-
-## 🚀 Key Features
-
-- ✅ **User Authentication:** Secure login and registration functionality for each user.
-- 🌱 **Add, View, Edit, and Delete Plants:** Perform full CRUD operations on plant records.
-- ⏰ **Watering Reminders:** Easily check how often each plant needs watering.
-- 📊 **Category-Based Sorting:** Sort plants based on care level or next watering date.
-- 🎨 **Responsive UI with Theme Support:** Smooth experience across mobile and desktop with light/dark mode toggle.
+![Plant Care Tracker Screenshot](./assets/screenshot.png)
 
 ---
 
-## 📦 Tech Stack
+## 📌 Project Overview
 
-- **Frontend:** React, Tailwind CSS
-- **Backend:** Node.js, Express.js, MongoDB
-- **Authentication:** JWT
-- **Date Handling:** date-fns
+**Plant Care Tracker** is a full-stack web application that helps users manage and track their plants with ease. Users can add plants, set reminders, manage their collection, and even switch themes. The application provides authentication and real-time interaction with a clean, responsive UI.
 
 ---
+
+## 🛠️ Technologies Used
+
+### 🔹 Frontend:
+- React.js
+- React Router DOM
+- Tailwind CSS
+- DaisyUI
+
+### 🔹 Backend:
+- Node.js
+- Express.js
+- MongoDB
+- JWT (JSON Web Token)
+
+### 🔹 Deployment:
+- Firebase (client)
+- Vercel (server)
+
+---
+
+## ✨ Main Features
+
+- 🔐 User Authentication (Email/Password Login & Register)
+- 🪴 Add, View, Update, and Delete Plants (CRUD operations)
+- 🕒 Set watering or care reminders
+- 🌗 Light/Dark theme toggle
+- 🔎 Search and sort plants by name or category
+- ❤️ Like feature for favorite plants
+- 📱 Fully responsive design
+
+---
+
+## 📦 Dependencies
+
+### Client:
+- `react`
+- `react-dom`
+- `react-router-dom`
+- `axios`
+- `daisyui`
+- `tailwindcss`
+- `firebase`
+
+### Server:
+- `express`
+- `cors`
+- `dotenv`
+- `jsonwebtoken`
+- `mongoose`
+- `cookie-parser`
+
+---
+
+## 💻 How to Run the Project Locally
+
+### 🧩 Clone the Repository
+
+```bash
+git clone https://github.com/mdnur3330/plant-care-tracker.git
+cd plant-care-tracker
