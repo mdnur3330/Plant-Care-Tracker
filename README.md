@@ -2,7 +2,6 @@
 
 🚀 **Live Site:** [https://plant-bda56.web.app/](https://plant-bda56.web.app/)
 
-![Plant Care Tracker Screenshot](./assets/screenshot.png)
 
 ---
 
